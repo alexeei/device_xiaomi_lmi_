@@ -14,8 +14,8 @@
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <SwitchPreferenceCompat
-        android:key="htsr_enable"
-        android:title="@string/htsr_title"
-        android:summary="@string/htsr_summary"
+        android:key="fch_enable"
+        android:title="@string/fch_title"
+        android:summary="@string/fch_summary"
         android:defaultValue="false" />
 </PreferenceScreen>

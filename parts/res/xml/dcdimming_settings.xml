@@ -12,10 +12,12 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/dc_dimming_enable_title">
     <SwitchPreferenceCompat
-        android:key="htsr_enable"
-        android:title="@string/htsr_title"
-        android:summary="@string/htsr_summary"
-        android:defaultValue="false" />
+        android:key="dc_dimming_enable"
+        android:defaultValue="false"
+        android:title="@string/dc_dimming_enable_title"
+        android:summary="@string/dc_dimming_enable_summary" />
 </PreferenceScreen>
