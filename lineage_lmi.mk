@@ -33,6 +33,13 @@ TARGET_SCREEN_HEIGHT    := 2340
 TARGET_SCREEN_WIDTH     := 1080
 WITH_GMS := false
 
+TARGET_ENABLE_BLUR := true
+TARGET_BOOT_ANIMATION_RES := 1080
+
+PRODUCT_BUILD_PROP_OVERRIDES +=
+     RisingChipset="Snapdragon 865"
+     RisingMaintainer="a1exeei"
+
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
 BUILD_FINGERPRINT := Redmi/lmi/lmi:12/SKQ1.211006.001/V14.0.1.0.SJKMIXM:user/release-keys
