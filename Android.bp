@@ -1,4 +1,14 @@
 soong_namespace {
+imports: [
+        "bootable/deprecated-ota",
+        "hardware/google/interfaces",
+        "hardware/google/pixel",
+        "hardware/lineage/interfaces/power-libperfmgr",
+        "hardware/xiaomi",
+	"vendor/qcom/opensource/usb/etc",
+     
+    ],
+
 }
 
 cc_library_shared {
