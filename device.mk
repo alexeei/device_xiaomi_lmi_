@@ -386,6 +386,13 @@ PRODUCT_PACKAGES += \
     libjsoncpp.vendor \
     libsqlite.vendor
 
+# QR Camera
+PRODUCT_PACKAGES += \
+    MlkitBarcodeUI \
+    VisionBarcode \
+    QRCameraOverlay \
+    ApertureQRScannerOverlay
+
 # QTI
 PRODUCT_PACKAGES += \
     libqti_vndfwk_detect.vendor \
