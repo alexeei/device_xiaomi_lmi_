@@ -300,6 +300,9 @@ firmware_directories /vendor/firmware_mnt/image/
 /dev/vm_bms               0660   system     system
 /dev/battery_data         0660   system     system
 
+# Battery
+/sys/class/qcom-battery                                 restrict_chg                   0660    system  system
+
 # wlan
 /dev/wcnss_wlan           0660   system     system
 /dev/wcnss_ctrl           0660   system     system

@@ -105,6 +105,11 @@ on boot
     chmod 0660 /sys/module/kprofiles/parameters/auto_kprofiles
     chown system system /sys/module/kprofiles/parameters/kp_mode
     chmod 0660 /sys/module/kprofiles/parameters/kp_mode
+
+    # Allow system to manipulate Fast Charge node
+    chown system system /sys/class/qcom-battery/restrict_chg
+    chmod 0660 /sys/class/qcom-battery/restrict_chg
+
     
     # default country code
     setprop ro.boot.wificountrycode 00
