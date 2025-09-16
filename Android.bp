@@ -5,7 +5,7 @@ imports: [
         "hardware/google/pixel",
         "hardware/lineage/interfaces/power-libperfmgr",
         "hardware/xiaomi",
-	"vendor/qcom/opensource/usb/etc",
+	    "vendor/qcom/opensource/usb/etc",
      
     ],
 
