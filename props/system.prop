@@ -1,23 +1,46 @@
 # Camera
 camera.disable_zsl_mode=true
-ro.product.mod_device=lmi_global
 
 # Charger
 ro.charger.enable_suspend=1
+
+# Dalvik
+dalvik.vm.dex2oat64.enabled=true
+dalvik.vm.systemservercompilerfilter=speed 
+dalvik.vm.systemuicompilerfilter=speed 
 
 # Display
 debug.gralloc.gfx_ubwc_disable=0
 persist.vendor.color.matrix=2
 ro.surface_flinger.max_frame_buffer_acquired_buffers=3
+debug.sf.predict_hwc_composition_strategy=0
+
+
+# Disable Skia tracing by default
+debug.hwui.skia_tracing_enabled=false
+debug.hwui.skia_use_perfetto_track_events=false
+
+# Disable MTE Async for system server
+arm64.memtag.process.system_server=off
+
+# Feature flags
+persist.sys.fflag.override.settings_enable_monitor_phantom_procs=false
 
 # IMS
+persist.radio.VT_HYBRID_ENABLE=1
 persist.dbg.volte_avail_ovr=1
 persist.dbg.vt_avail_ovr=1
 persist.dbg.wfc_avail_ovr=1
 
+# IMS Debugging
+persist.vendor.ims.disableADBLogs=1
+persist.vendor.ims.disableDebugLogs=1
+persist.vendor.ims.disableIMSLogs=1
+persist.vendor.ims.disableQXDMLogs=1
+
 # IOP
-vendor.iop.enable_prefetch_ofr=1
-vendor.iop.enable_uxe=1
+#vendor.iop.enable_prefetch_ofr=1
+#vendor.iop.enable_uxe=1
 
 # RIL
 persist.sys.fflag.override.settings_provider_model=false
@@ -25,19 +48,6 @@ persist.vendor.radio.report_codec=1
 ril.subscription.types=NV,RUIM
 ro.telephony.default_network=33,33
 
-# Thermal
-vendor.sys.thermal.data.path=/data/vendor/thermal/
-
 # Vendor
 ro.vendor.qti.va_aosp.support=1
 
-# Better Ram
-ro.config.fha_enable=true
-ro.sys.fw.bg_apps_limit=32
-ro.config.dha_cached_max=16
-ro.config.dha_empty_max=42
-ro.config.dha_empty_init=32
-ro.config.dha_lmk_scale=0.545
-ro.config.dha_th_rate=2.3
-ro.config.sdha_apps_bg_max=64
-ro.config.sdha_apps_bg_min=8
