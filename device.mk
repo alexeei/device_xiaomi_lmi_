@@ -353,6 +353,7 @@ PRODUCT_PACKAGES += \
     LmiFrameworks \
     LmiSystemUI \
     WifiResCommon \
+    FastChargeLmi \
     WifiResTarget
 
 # Partitions
