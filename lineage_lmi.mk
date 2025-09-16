@@ -14,6 +14,9 @@ $(call inherit-product, device/xiaomi/lmi/device.mk)
 # Inherit some common Ricedroid stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
+#BCR
+$(call inherit-product, vendor/xiaomi/bcr/bcr.mk)
+
 TARGET_BUILD_APERTURE_CAMERA := false
 TARGET_BOOT_ANIMATION_RES := 1080
 TARGET_SUPPORTS_QUICK_TAP := true
@@ -25,6 +28,9 @@ PRODUCT_BRAND := POCO
 PRODUCT_MODEL := POCO F2 Pro
 EXTRA_UDFPS_ANIMATIONS := true
 TARGET_DISABLE_EPPE := true
+TARGET_BUILD_DEVICE_AS_WEBCAM := true
+TARGET_SCREEN_HEIGHT    := 2340
+TARGET_SCREEN_WIDTH     := 1080
 WITH_GMS := false
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
