@@ -10,7 +10,8 @@ genfscon sysfs /devices/platform/soc/soc:fingerprint_fpc/request_vreg           
 genfscon sysfs /devices/platform/soc/soc:fingerprint_fpc/wakeup_enable                 u:object_r:vendor_sysfs_fingerprint:s0
 genfscon sysfs /devices/platform/soc/soc:fingerprint_fpc/vendor                        u:object_r:vendor_sysfs_fingerprint:s0
 
-
+# FastCharge
+genfscon sysfs /sys/class/qcom-battery/restrict_chg                                    u:object_r:sysfs_fastcharge:s0
 
 # Power_supply
 genfscon sysfs /devices/platform/soc/884000.i2c/i2c-4/4-0055/power_supply                                                            u:object_r:sysfs_power_supply:s0

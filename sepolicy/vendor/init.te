@@ -10,3 +10,6 @@ allowxperm init per_boot_file:file ioctl { F2FS_IOC_SET_PIN_FILE };
 allow init sysfs_kprofiles:file { setattr };
 
 set_prop(init, vendor_fingerprint_prop)
+
+allow init vendor_sysfs_battery_supply:file { open read getattr setattr};
+allow init sysfs_fastcharge:file { setattr };
