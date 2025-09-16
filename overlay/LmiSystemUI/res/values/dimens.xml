@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2022 The LineageOS Project
+     Copyright (C) 2021 The LineageOS Project
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
 
-    <dimen name="config_rounded_mask_size">156px</dimen>
-    <dimen name="config_rounded_mask_size_top">156px</dimen>
-    <dimen name="config_rounded_mask_size_bottom">156px</dimen>
-
     <!-- The padding on the top of the statusbar (usually 0). -->
-    <dimen name="status_bar_padding_top">2dp</dimen>
-    
-    <!-- Height of the status bar header bar when on Keyguard (match status_bar_height) -->
-    <dimen name="status_bar_header_height_keyguard">@*android:dimen/status_bar_height</dimen>
+    <dimen name="status_bar_padding_top">5dp</dimen>
+
+    <!-- for 18dp of padding at 2.75px/dp at default density -->
+    <dimen name="rounded_corner_content_padding">70px</dimen>
 
     <!-- Bottom margin size when fingerprint in display is active -->
     <dimen name="keyguard_indication_margin_bottom">30dp</dimen>
 
+    <!--  Allow CornerHandleView and PathSpecCornerPathRenderer to decouple from corner-radius -->
+    <dimen name="config_rounded_mask_size">122px</dimen>
+    
     <!-- UDFPS recognizing animation vertical position offset -->
     <dimen name="udfps_animation_offset">35dp</dimen>
     
@@ -26,10 +25,13 @@
     <dimen name="physical_power_button_center_screen_location_y">980px</dimen>
 	
     <!-- the padding on the start of the statusbar -->
-    <dimen name="status_bar_padding_start">12dp</dimen>
+    <dimen name="status_bar_padding_start">0dp</dimen>
 
     <!-- the padding on the end of the statusbar -->
-    <dimen name="status_bar_padding_end">12dp</dimen>
+    <dimen name="status_bar_padding_end">2dp</dimen>
+	
+    <!-- Burn-in protection -->
+    <dimen name="burnin_protection_horizontal_shift">1dp</dimen>
 
      <!-- Pixel pitch of the device. um/px -->
     <item name="pixel_pitch" format="float" type="dimen">59.4</item>

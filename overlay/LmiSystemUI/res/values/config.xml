@@ -13,7 +13,13 @@
         M122,0 C71.76,3.59 52.03,8.07 29.6,29.6 8.07,52.03 3.59,71.76 0,122
     </string>
 
-    <!-- The radius of the enrollment progress bar, in dp -->
-    <integer name="config_udfpsEnrollProgressBar" translatable="false">96</integer>
+    <!-- Preferred max refresh rate at AOD & Ambient Display, if supported by the display. -->
+    <integer name="config_aodMaxRefreshRate">60</integer>
 
+     <!-- Whether to show a warning notification when device's skin temperature is high. -->
+     <integer name="config_showTemperatureWarning">1</integer>
+ 
+     <!-- Whether to show a alarm dialog when device's usb port is overheating. -->
+     <integer name="config_showUsbPortAlarm">1</integer>
+    
 </resources>
