@@ -362,4 +362,9 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.servicetracker</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IServicetracker/default</fqname>
+    </hal>
 </manifest>
