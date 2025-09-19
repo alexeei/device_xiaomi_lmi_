@@ -219,6 +219,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fastbootd
 
+#Fastcharge
+PRODUCT_PACKAGES += \
+    vendor.lineage.fastcharge@1.0-service.xiaomi_sm8250
+
 # HIDL
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
@@ -353,7 +357,6 @@ PRODUCT_PACKAGES += \
     LmiFrameworks \
     LmiSystemUI \
     WifiResCommon \
-    FastChargeLmi \
     WifiResTarget
 
 # Partitions
@@ -365,7 +368,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     PocketMode
-    ...
+
 PRODUCT_COPY_FILES += \
      $(LOCAL_PATH)/pocket/privapp-permissions-pocketmode.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-pocketmode.xml
 
