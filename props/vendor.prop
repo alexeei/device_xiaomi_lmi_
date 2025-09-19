@@ -188,7 +188,7 @@ vendor.display.disable_idle_time_video=1
 vendor.display.disable_idle_time_hdr=1
 debug.sf.auto_latch_unsignaled=0
 
-
+ro.launcher.blur.appLaunch=0
 #increase ram consumption but improve smoothness
 debug.sf.disable_client_composition_cache=0
 
