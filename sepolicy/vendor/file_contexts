@@ -84,6 +84,9 @@
 # USB
 /vendor/bin/init\.mi\.usb\.sh                               u:object_r:vendor_qti_init_shell_exec:s0
 
+#USB fast charge
+/sys/kernel/fast_charge/force_fast_charge                               u:object_r:sysfs_htsr:s0
+
 # Vibrator
 /vendor/bin/hw/vendor\.qti\.hardware\.vibrator\.service\.xiaomi_lmi                                                                 u:object_r:hal_vibrator_default_exec:s0
 
