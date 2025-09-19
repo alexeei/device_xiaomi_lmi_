@@ -172,6 +172,9 @@ endif
 PRODUCT_PACKAGES += \
     libldacBT_bco
 
+# Bootanimation
+TARGET_BOOTANIMATION_HALF_RES := true
+
 # Camera
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
@@ -490,6 +493,8 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
     SystemUI \
     Nexuslauncher \
     lawnchair
+
+
 
 # Telephony
 PRODUCT_PACKAGES += \
