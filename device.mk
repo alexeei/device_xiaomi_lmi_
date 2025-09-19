@@ -293,6 +293,40 @@ PRODUCT_PACKAGES += \
 
 $(call soong_config_set,lineage_health,charging_control_supports_bypass,false)
 
+# Logging
+SPAMMY_LOG_TAGS := \
+     AsyncOperation \
+     BackgroundInstallControlService \
+     BinderNative \
+     dxwi \
+     HWUI \
+     MiStcImpl \
+     OtherActivityInputConsumer \
+     SDM \
+     SDM-histogram \
+     SensorService \
+     SRE \
+     WindowManager \
+     WindowManagerShell \
+     WifiHAL \
+     cnss-daemon \
+     libcitsensorservice@2.0-impl \
+     libsensor-displayalgo \
+     libsensor-parseRGB \
+     libsensor-ssccalapi \
+     libjingle \
+     StrictMode \
+     sensors \
+     TextView \
+     PerformanceBooster \
+     vendor.qti.hardware.display.composer-service \
+     vendor.xiaomi.sensor.citsensorservice@2.0-service
+
+ ifneq ($(TARGET_BUILD_VARIANT),eng)
+ PRODUCT_VENDOR_PROPERTIES += \
+     $(foreach tag,$(SPAMMY_LOG_TAGS),log.tag.$(tag)=E)
+ endif
+
 # Media
 PRODUCT_PACKAGES += \
     libavservices_minijail \
