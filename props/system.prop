@@ -54,3 +54,7 @@ vendor.sys.thermal.data.path=/data/vendor/thermal/
 # Vendor
 ro.vendor.qti.va_aosp.support=1
 
+# BT audio
+audio.offload.buffer.size.kb=256
+audio.offload.gapless.enabled=true
+
