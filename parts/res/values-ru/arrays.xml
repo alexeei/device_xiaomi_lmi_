@@ -73,9 +73,9 @@
     </string-array>
 
     <string-array name="fastcharge_modes_entries">
-        <item>Charge current 1A</item>
-        <item>Charge current 2A</item>
-        <item>Charge current 3A</item>
+        <item>Ток зарядки 1A</item>
+        <item>Ток зарядки 2A</item>
+        <item>Ток зарядки 3A</item>
     </string-array>
 
     <string-array name="fastcharge_modes_values">

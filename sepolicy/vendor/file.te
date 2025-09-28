@@ -35,4 +35,4 @@ type vendor_thermal_data_file, file_type, data_file_type;
 
 type camera_persist_file, file_type, data_file_type;
 
-type sysfs_fastcharge, sysfs_type, fs_type;
+type vendor_sysfs_fastcharge, fs_type, sysfs_type;

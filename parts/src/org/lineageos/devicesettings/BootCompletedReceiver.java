@@ -31,6 +31,7 @@ import androidx.preference.PreferenceManager;
 import org.lineageos.devicesettings.popupcamera.PopupCameraUtils;
 
 import org.lineageos.devicesettings.fch.FchUtils;
+import org.lineageos.devicesettings.utils.FileUtils;
 
 
 
@@ -45,20 +46,35 @@ public class BootCompletedReceiver extends BroadcastReceiver {
     private static final String HTSR_ENABLE_KEY = "htsr_enable";
     private static final String HTSR_FILE = "/sys/devices/virtual/touch/touch_dev/bump_sample_rate";
 
+    private static final String KEY_NORMAL_CHARGER = "fastcharge_normal";
+    private static final String KEY_USB_CHARGER = "fastcharge_usb";
+    private static final String KEY_THERMAL_BOOST = "thermal_boost";
+
+    public static final String NORMAL_CHARGE_NODE = "/sys/class/qcom-battery/restrict_cur";
+    public static final String USB_CHARGE_NODE = "/sys/kernel/fast_charge/force_fast_charge";
+    public static final String THERMAL_BOOST_NODE = "/sys/class/qcom-battery/restrict_chg";
+
 
     @Override
     public void onReceive(final Context context, Intent intent) {
         if (DEBUG) Log.d(TAG, "Received boot completed intent");
         PopupCameraUtils.startService(context);
-        FchUtils.restoreFchValue(context);
+      //  FchUtils.restoreFchValue(context);
 
         
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
         
-         FileUtils.writeLine(DC_DIMMING_NODE,
+        FileUtils.writeLine(DC_DIMMING_NODE,
             sharedPrefs.getBoolean(DC_DIMMING_ENABLE_KEY, false) ? "1" : "0");
         FileUtils.writeLine(HTSR_FILE,
             sharedPrefs.getBoolean(HTSR_ENABLE_KEY, false) ? "1" : "0");
+        FileUtils.writeLine(USB_CHARGE_NODE,
+            sharedPrefs.getBoolean(KEY_USB_CHARGER, false) ? "1" : "0");
+        FileUtils.writeLine(THERMAL_BOOST_NODE,
+            sharedPrefs.getBoolean(KEY_THERMAL_BOOST, false) ? "0" : "1");
+        Log.d(TAG, "Received boot completed intent fastch");
+        Log.d(TAG, KEY_THERMAL_BOOST);
+        Log.w(TAG, "Received boot completed intent fastch1");
         
     }
 }

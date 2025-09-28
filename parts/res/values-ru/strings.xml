@@ -77,6 +77,27 @@
     <string name="popup_led_color_yellow">Желтый</string>
     <string name="popup_led_color_white">Белый</string>
     <string name="popup_camera_front_failed">Невозможно открыть камеру. Попробуйте снова.</string>
+     <!-- Fastcharge settings -->
+    <string name="fastcharge_title">Быстрая зарядка</string>
+    <string name="fastcharge_summary">Настройки быстрой зарядки</string>
+    <string name="fastcharge_category_title">Настройки быстрой зарядки</string>
+    <string name="fastcharge_normal_title">Ток зарядки</string>
+    <string name="fastcharge_normal_summary">Установка тока зарядки (не сохраняется после перезагрузки)</string>
+    <string name="fastcharge_normal_30w_summary">Быстрая зарядка</string>
+    <string name="fastcharge_normal_15w_summary">Medium charging (15W)</string>
+    <string name="fastcharge_normal_8w_summary">Обычная зарядка</string>
+    <string name="fastcharge_usb_title">Быстрая зарядка по USB</string>
+    <string name="fastcharge_usb_summary">Включение быстрой зарядки</string>
+    <string name="fastcharge_normal_unavailable">Быстрая зарядка не поддерживается</string>
+    <string name="fastcharge_usb_unavailable">USB fast charging not supported on this device</string>
+    <string name="fastcharge_thermal_title">Быстрая зарядка от розетки</string>
+    <string name="fastcharge_thermal_summary">Включение быстрой зарядки</string>
+    <string name="fastcharge_thermal_warning">Warning: Increasing thermal limits may reduce battery lifespan and cause higher temperatures. Use at your own risk!</string>
+    <string name="fastcharge_bypass_title">Сквозная зарядка</string>
+    <string name="fastcharge_bypass_summary">Directly power device from charger (may reduce battery wear)</string>
+    <string name="fastcharge_bypass_warning">Warning: Bypass charging may cause unstable power delivery in some cases. Use at your own risk!</string>
+    <string name="fastcharge_bypass_unavailable">Bypass charging not supported on this device</string>
+
     <!-- Clear Speaker -->
     <string name="clear_speaker_title">Очистка динамика</string>
     <string name="clear_speaker_summary">Играет 30 секундный громкий звук для прочистки динамика</string>

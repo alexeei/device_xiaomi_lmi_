@@ -77,6 +77,27 @@
     <string name="popup_led_color_yellow">Yellow</string>
     <string name="popup_led_color_white">White</string>
 
+    <!-- Fastcharge settings -->
+    <string name="fastcharge_title">Fastcharging</string>
+    <string name="fastcharge_summary">Configure fastcharge options</string>
+    <string name="fastcharge_category_title">Fastcharge options</string>
+    <string name="fastcharge_normal_title">Charging current (not saved after reboot)</string>
+    <string name="fastcharge_normal_summary">Select charging current for wall chargers</string>
+    <string name="fastcharge_normal_30w_summary">Fast charging</string>
+    <string name="fastcharge_normal_15w_summary">Medium charging</string>
+    <string name="fastcharge_normal_8w_summary">Slow charging</string>
+    <string name="fastcharge_usb_title">Enable for USB</string>
+    <string name="fastcharge_usb_summary">Enable fastcharging when using USB ports</string>
+    <string name="fastcharge_normal_unavailable">Fast charging not supported on this device</string>
+    <string name="fastcharge_usb_unavailable">USB fast charging not supported on this device</string>
+    <string name="fastcharge_thermal_title">Fast charge</string>
+    <string name="fastcharge_thermal_summary">Enable fast charging for wall chargers</string>
+    <string name="fastcharge_thermal_warning">Warning: Increasing thermal limits may reduce battery lifespan and cause higher temperatures. Use at your own risk!</string>
+    <string name="fastcharge_bypass_title">Bypass charging</string>
+    <string name="fastcharge_bypass_summary">Directly power device from charger (may reduce battery wear)</string>
+    <string name="fastcharge_bypass_warning">Warning: Bypass charging may cause unstable power delivery in some cases. Use at your own risk!</string>
+    <string name="fastcharge_bypass_unavailable">Bypass charging not supported on this device</string>
+
     <!-- Clear Speaker -->
     <string name="clear_speaker_title">Clear speaker</string>
     <string name="clear_speaker_summary">Play a 30-second audio to clear the speaker</string>

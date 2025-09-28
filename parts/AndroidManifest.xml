@@ -82,11 +82,13 @@
         </activity>
 
 
-        <!-- Fastcharge usb -->
+        <!-- Fastcharge -->
+
         <activity
-            android:name=".fch.FchSettingsActivity"
-            android:label="@string/fch_title"
+            android:name=".fastcharge.FastChargeActivity"
+            android:label="@string/fastcharge_title"
             android:exported="true" >
+
             <intent-filter>
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
             </intent-filter>
@@ -97,8 +99,10 @@
                 android:value="com.android.settings.category.ia.battery" />
             <meta-data
                 android:name="com.android.settings.summary"
-                android:resource="@string/fch_summary" />
+                android:resource="@string/fastcharge_summary" />
         </activity>
+
+        
 
 
         <!-- Popup camera -->

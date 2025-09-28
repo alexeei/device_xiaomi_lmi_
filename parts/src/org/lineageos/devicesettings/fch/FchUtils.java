@@ -39,7 +39,7 @@ import java.io.FileReader;
 public final class FchUtils {
 
     private static final String TAG = "FchUtils";
-    public static final String FCH_FILE = "/sys/kernel/fast_charge/force_fast_charge";
+    public static final String FCH_FILE = "/sys/class/qcom-battery/restrict_chg";
 
     public static void restoreFchValue(Context context) {
         SharedPreferences sharedPref = context.getSharedPreferences(FchSettingsFragment.SHAREDFCH, Context.MODE_PRIVATE);

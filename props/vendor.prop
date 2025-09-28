@@ -196,6 +196,9 @@ debug.sf.disable_client_composition_cache=0
 #dex2oat
 dalvik.vm.dex2oat64.enabled=true
 
+#device_as_webcam
+ro.usb.uvc.enabled=true
+
 # DPM
 persist.vendor.dpm.feature=1
 persist.vendor.dpm.loglevel=0
@@ -339,7 +342,7 @@ ro.opengles.version=196610
 #zygote.critical_window.minute=10
 
 #adb
-persist.sys.usb.config=mtp,adb
-ro.secure=0
-ro.adb.secure=0
-ro.debuggable=1
+#persist.sys.usb.config=mtp,adb
+#ro.secure=0
+#ro.adb.secure=0
+#ro.debuggable=1

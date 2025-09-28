@@ -28,3 +28,7 @@ dontaudit vendor_hal_capabilityconfigstore_qti_default vendor_cap_configstore_db
 
 dontaudit platform_app default_android_hwservice:hwservice_manager find;
 dontaudit platform_app default_android_service:service_manager find;
+
+dontaudit {
+  devicesettings_app
+} default_prop:file r_file_perms;
