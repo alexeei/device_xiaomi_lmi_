@@ -189,6 +189,8 @@ PRODUCT_PACKAGES += \
     libpng.vendor \
     vendor.qti.hardware.camera.device@1.0.vendor \
     vendor.qti.hardware.camera.postproc@1.0.vendor
+
+$(call soong_config_set,libcameraservice,ext_lib,libcameraservice_extension.lmi)
     
 # Charger
 PRODUCT_PACKAGES += \

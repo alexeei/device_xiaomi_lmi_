@@ -14,7 +14,7 @@
 // limitations under the License.
 
 cc_library_static {
-    name: "libcameraservice_extension.sm8250",
+    name: "libcameraservice_extension.lmi",
     srcs: ["CameraProviderExtension.cpp"],
     include_dirs: [
         "frameworks/av/services/camera/libcameraservice/common"
