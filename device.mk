@@ -191,6 +191,10 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.camera.postproc@1.0.vendor
 
 $(call soong_config_set,libcameraservice,ext_lib,libcameraservice_extension.lmi)
+
+# Camera Extensions permissions
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/permissions/camerax-vendor-extensions.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/camerax-vendor-extensions.xml
     
 # Charger
 PRODUCT_PACKAGES += \

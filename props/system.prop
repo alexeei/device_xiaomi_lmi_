@@ -1,5 +1,6 @@
 # Camera
 camera.disable_zsl_mode=true
+ro.camerax.extensions.enabled=true
 
 # Charger
 ro.charger.enable_suspend=1

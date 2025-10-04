@@ -1,2 +1,7 @@
+# Camera
+ro.camerax.extensions.enabled=true
+
 # ODM
 ro.vendor.qti.va_odm.support=1
+
+import /odm/etc/${ro.boot.hwc}_build.prop
