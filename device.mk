@@ -469,7 +469,8 @@ PRODUCT_PACKAGES += \
 # RIL
 PRODUCT_PACKAGES += \
     librmnetctl \
-    libxml2
+    libxml2 \
+    android.hardware.radio-service.compat
 
 # Sensors
 PRODUCT_PACKAGES += \
