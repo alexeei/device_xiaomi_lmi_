@@ -301,6 +301,9 @@ PRODUCT_PACKAGES += \
 
 $(call soong_config_set,lineage_health,charging_control_supports_bypass,false)
 
+#Kernel
+PRODUCT_ENABLE_UFFD_GC := true
+
 # Logging
 SPAMMY_LOG_TAGS := \
      AsyncOperation \
