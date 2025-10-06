@@ -10,11 +10,10 @@
 
 #define TORCH_BRIGHTNESS "brightness"
 #define TORCH_MAX_BRIGHTNESS "max_brightness"
-#define TOGGLE_SWITCH "/sys/devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-05/c440000.qcom,spmi:qcom,pm8150l@5:qcom,leds@d300/leds/led:switch_0/brightness"
+#define TOGGLE_SWITCH "/sys/devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-05/c440000.qcom,spmi:qcom,pm8150l@5:qcom,leds@d300/leds/led:switch_2/brightness"
 
 static std::string kTorchLedPaths[] = {
-        "/sys/devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-05/c440000.qcom,spmi:qcom,pm8150l@5:qcom,leds@d300/leds/led:torch_0",
-        "/sys/devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-05/c440000.qcom,spmi:qcom,pm8150l@5:qcom,leds@d300/leds/led:torch_1",
+        "/sys/devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-05/c440000.qcom,spmi:qcom,pm8150l@5:qcom,leds@d300/leds/flashlight/brightness",
 };
 
 /**
@@ -47,34 +46,31 @@ bool supportsSetTorchModeExt() {
 }
 
 int32_t getTorchDefaultStrengthLevelExt() {
-    return 7;
+    return 100;
 }
 
 int32_t getTorchMaxStrengthLevelExt() {
-    // In our device, both LEDs has same maximum value
-    // so get from one.
-    auto node = kTorchLedPaths[0] + "/" + TORCH_MAX_BRIGHTNESS;
-    return get(node, 0);
+    // 200 (out of 500) is a sane max brightness
+    return 300;
 }
 
 int32_t getTorchStrengthLevelExt() {
     // We write same value in the both LEDs,
     // so get from one.
-    auto node = kTorchLedPaths[0] + "/" + TORCH_BRIGHTNESS;
+    auto node = "/sys/devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-05/c440000.qcom,spmi:qcom,pm8150l@5:qcom,leds@d300/leds/flashlight/brightness";
     return get(node, 0);
 }
 
-void setTorchStrengthLevelExt(int32_t torchStrength) {
+void setTorchStrengthLevelExt(int32_t torchStrength, bool enabled) {
     set(TOGGLE_SWITCH, 0);
-    for (auto& path : kTorchLedPaths) {
-        auto node = path + "/" + TORCH_BRIGHTNESS;
+        auto node = "/sys/devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-05/c440000.qcom,spmi:qcom,pm8150l@5:qcom,leds@d300/leds/flashlight/brightness";
         set(node, torchStrength);
-    }
-    if (torchStrength > 0)
+
+    if (enabled)
         set(TOGGLE_SWITCH, 255);
 }
 
 void setTorchModeExt(bool enabled) {
     int32_t strength = getTorchDefaultStrengthLevelExt();
-    setTorchStrengthLevelExt(enabled ? strength : 0);
+    setTorchStrengthLevelExt(enabled ? strength : 0, enabled);
 }
