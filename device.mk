@@ -205,6 +205,7 @@ PRODUCT_PACKAGES += \
     disable_configstore
 
 # Display
+TARGET_USES_VULKAN = true 
 PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.1 \
     android.hardware.graphics.mapper@3.0-impl-qti-display \
@@ -288,8 +289,7 @@ PRODUCT_PACKAGES += \
 
 # IR
 PRODUCT_PACKAGES += \
-    android.hardware.ir@1.0-impl \
-    android.hardware.ir@1.0-service
+   android.hardware.ir-service.lineage
 
 # Keymaster
 PRODUCT_PACKAGES += \

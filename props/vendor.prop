@@ -239,14 +239,20 @@ debug.sdm.support_writeback=0
 vendor.display.enable_hdr10_gpu_target=1
 
 vendor.display.vds_allow_hwc=1
+debug.sf.enable_gl_backpressure=0
+debug.hwui.skia_atrace_enabled=false
 
 
 #HWUI
 debug.hwui.use_hint_manager=true
+debug.hwui.renderer=vulkan
 #ro.hwui.render_ahead=3
 debug.hwui.target_cpu_time_percent=30
 debug.renderengine.backend=skiaglthreaded
 #debug.hwui.render_thread_count=2
+
+
+ro.surface_flinger.set_idle_timer_ms?=500
 
 # Keystore
 ro.hardware.keystore_desede=true
@@ -269,6 +275,9 @@ vendor.pasr.activemode.enabled=true
 
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so
+vendor.perf.framepacing.enable=1
+persist.sys.perf.scroll_opt=true
+persist.sys.perf.scroll_opt.heavy_app=1
 
 # Qualcomm System Daemon
 persist.vendor.qcomsysd.enabled=1
