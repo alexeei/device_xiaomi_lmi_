@@ -16,6 +16,9 @@
 # Charger
 /vendor/bin/batterysecret                                   u:object_r:batterysecret_exec:s0
 
+# Charging Bypass
+/sys/class/power_supply/battery/batt_slate_mode              u:object_r:sysfs_battery_writable:s0
+
 # Data files
 /data/per_boot(/.*)?                                        u:object_r:per_boot_file:s0
 

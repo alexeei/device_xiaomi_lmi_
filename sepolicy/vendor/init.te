@@ -13,3 +13,4 @@ set_prop(init, vendor_fingerprint_prop)
 
 allow init vendor_sysfs_battery_supply:file { open read getattr setattr};
 allow init vendor_sysfs_fastcharge:file { setattr };
+allow init sysfs_battery_supply:file rw_file_perms;
