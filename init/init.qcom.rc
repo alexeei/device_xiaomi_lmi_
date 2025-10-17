@@ -299,10 +299,6 @@ on post-fs-data
     # Create directory used by display clients
     mkdir /data/vendor/display 0770 system graphics
 
-    # Charge Bypass
-    chown system system /sys/class/power_supply/battery
-    chmod 0660 /sys/class/power_supply/battery
-
     # Change lm related dirs
     mkdir /data/vendor/lm 0700 root root
 

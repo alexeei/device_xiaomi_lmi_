@@ -21,8 +21,6 @@ type sysfs_tp_partial_data, fs_type, sysfs_type;
 # Torch
 type sysfs_torch, fs_type, sysfs_type;
 
-# Bypass Charging
-type sysfs_battery_writable, sysfs_type, fs_type;
 
 type sysfs_wireless_supply, fs_type, sysfs_type;
 
