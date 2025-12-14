@@ -53,6 +53,11 @@ on post-fs-data
     mkdir /mnt/vendor/persist/goodix 0770 system system
     mkdir /mnt/vendor/persist/fpc 0770 system system
 
+     # Dt2w
+    chown system system /sys/touchpanel/double_tap
+    chmod 0666 /sys/touchpanel/double_tap
+    write /sys/touchpanel/double_tap 1
+
 on property:init.svc.vendor.nv_mac=stopped
     start vendor.btmac-sh
 

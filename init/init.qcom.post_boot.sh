@@ -199,34 +199,30 @@ case "$target" in
         echo 100 > /sys/class/drm/card0/device/idle_timeout_ms
 
 	# configure governor settings for silver cluster
-	echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
-	echo 0 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/down_rate_limit_us
-	echo 0 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/up_rate_limit_us
-        if [ $rev == "2.0" ] || [ $rev == "2.1" ]; then
-		echo 1248000 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/hispeed_freq
-	else
-		echo 1228800 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/hispeed_freq
-	fi
-	echo 576000 > /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
-	echo 1 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/pl
+	echo "schedhorizon" > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
+	echo 1500 > /sys/devices/system/cpu/cpufreq/policy0/schedhorizon/down_rate_limit_us
+	echo 500 > /sys/devices/system/cpu/cpufreq/policy0/schedhorizon/up_rate_limit_us
+	echo 518000 > /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
 
 	# configure governor settings for gold cluster
-	echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy4/scaling_governor
-	echo 0 > /sys/devices/system/cpu/cpufreq/policy4/schedutil/down_rate_limit_us
-	echo 0 > /sys/devices/system/cpu/cpufreq/policy4/schedutil/up_rate_limit_us
-	echo 1574400 > /sys/devices/system/cpu/cpufreq/policy4/schedutil/hispeed_freq
-	echo 1 > /sys/devices/system/cpu/cpufreq/policy4/schedutil/pl
+	echo "schedhorizon" > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
+	echo 1500 > /sys/devices/system/cpu/cpufreq/policy0/schedhorizon/down_rate_limit_us
+	echo 500 > /sys/devices/system/cpu/cpufreq/policy0/schedhorizon/up_rate_limit_us
 
 	# configure governor settings for gold+ cluster
-	echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy7/scaling_governor
-	echo 0 > /sys/devices/system/cpu/cpufreq/policy7/schedutil/down_rate_limit_us
-	echo 0 > /sys/devices/system/cpu/cpufreq/policy7/schedutil/up_rate_limit_us
-        if [ $rev == "2.0" ] || [ $rev == "2.1" ]; then
-		echo 1632000 > /sys/devices/system/cpu/cpufreq/policy7/schedutil/hispeed_freq
-	else
-		echo 1612800 > /sys/devices/system/cpu/cpufreq/policy7/schedutil/hispeed_freq
-	fi
-	echo 1 > /sys/devices/system/cpu/cpufreq/policy7/schedutil/pl
+	echo "schedhorizon" > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
+	echo 1500 > /sys/devices/system/cpu/cpufreq/policy0/schedhorizon/down_rate_limit_us
+	echo 500 > /sys/devices/system/cpu/cpufreq/policy0/schedhorizon/up_rate_limit_us
+
+    # Setup runtime schedTune
+     write /dev/stune/foreground/schedtune.prefer_idle 1
+     write /dev/stune/foreground/schedtune.prefer_high_cap 0
+     write /dev/stune/foreground/schedtune.boost 0
+     write /dev/stune/schedtune.prefer_idle 0
+     write /dev/stune/schedtune.prefer_high_cap 0
+     write /dev/stune/schedtune.boost 0
+     write /dev/stune/top-app/schedtune.prefer_idle 1
+     write /dev/stune/top-app/schedtune.prefer_high_cap 0
 
 	# Enable bus-dcvs
 	for device in /sys/devices/platform/soc
