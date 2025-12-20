@@ -184,7 +184,7 @@ case "$target" in
 	echo 400000000 > /proc/sys/kernel/sched_coloc_downmigrate_ns
 
 	# cpuset parameters
-        echo 1-2     > /dev/cpuset/audio-app/cpus
+    echo 1-2     > /dev/cpuset/audio-app/cpus
 	echo 0-2     > /dev/cpuset/background/cpus
 	echo 0-3     > /dev/cpuset/system-background/cpus
 	echo 4-6     > /dev/cpuset/foreground/boost/cpus
@@ -194,35 +194,20 @@ case "$target" in
 	# Turn off scheduler boost at the end
 	echo 0 > /proc/sys/kernel/sched_boost
 
-        # Enable idle state listener
-        echo 1 > /sys/class/drm/card0/device/idle_encoder_mask
-        echo 100 > /sys/class/drm/card0/device/idle_timeout_ms
+    # Enable idle state listener
+    echo 1 > /sys/class/drm/card0/device/idle_encoder_mask
+    echo 100 > /sys/class/drm/card0/device/idle_timeout_ms
 
 	# configure governor settings for silver cluster
 	echo "schedhorizon" > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
-	echo 1500 > /sys/devices/system/cpu/cpufreq/policy0/schedhorizon/down_rate_limit_us
-	echo 500 > /sys/devices/system/cpu/cpufreq/policy0/schedhorizon/up_rate_limit_us
 	echo 518000 > /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
 
 	# configure governor settings for gold cluster
 	echo "schedhorizon" > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
-	echo 1500 > /sys/devices/system/cpu/cpufreq/policy0/schedhorizon/down_rate_limit_us
-	echo 500 > /sys/devices/system/cpu/cpufreq/policy0/schedhorizon/up_rate_limit_us
 
 	# configure governor settings for gold+ cluster
 	echo "schedhorizon" > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
-	echo 1500 > /sys/devices/system/cpu/cpufreq/policy0/schedhorizon/down_rate_limit_us
-	echo 500 > /sys/devices/system/cpu/cpufreq/policy0/schedhorizon/up_rate_limit_us
 
-    # Setup runtime schedTune
-     write /dev/stune/foreground/schedtune.prefer_idle 1
-     write /dev/stune/foreground/schedtune.prefer_high_cap 0
-     write /dev/stune/foreground/schedtune.boost 0
-     write /dev/stune/schedtune.prefer_idle 0
-     write /dev/stune/schedtune.prefer_high_cap 0
-     write /dev/stune/schedtune.boost 0
-     write /dev/stune/top-app/schedtune.prefer_idle 1
-     write /dev/stune/top-app/schedtune.prefer_high_cap 0
 
 	# Enable bus-dcvs
 	for device in /sys/devices/platform/soc
