@@ -24,6 +24,9 @@ debug.hwui.skia_use_perfetto_track_events=false
 # Disable MTE Async for system server
 arm64.memtag.process.system_server=off
 
+# Deep Sleep
+vendor.post_boot.parsed=1s
+
 # Feature flags
 persist.sys.fflag.override.settings_enable_monitor_phantom_procs=false
 
@@ -42,6 +45,8 @@ persist.vendor.ims.disableQXDMLogs=1
 # IOP
 vendor.iop.enable_prefetch_ofr=1
 vendor.iop.enable_uxe=1
+
+
 
 # RIL
 persist.sys.fflag.override.settings_provider_model=false

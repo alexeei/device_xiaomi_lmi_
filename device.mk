@@ -233,6 +233,8 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.display.mapper@4.0.vendor \
     vendor.qti.hardware.memtrack-service
 
+
+
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.3.vendor \
@@ -299,8 +301,8 @@ PRODUCT_PACKAGES += \
     android.hardware.keymaster@4.1.vendor
 
 # KProfiles
-PRODUCT_PACKAGES += \
-    KProfiles
+#PRODUCT_PACKAGES += \
+#   KProfiles
 
 
 
@@ -426,9 +428,6 @@ PRODUCT_PACKAGES += \
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
-# Perf
-PRODUCT_PACKAGES += \
-    vendor.qti.hardware.perf@2.2.vendor
 
 # Parts
 PRODUCT_PACKAGES += \
@@ -444,9 +443,7 @@ PRODUCT_COPY_FILES += \
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power-service-qti \
-    vendor.qti.hardware.perf@2.2.vendor
-
-
+    vendor.qti.hardware.perf@2.2.vendor 
 
 
 # Protobuf
@@ -502,9 +499,14 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf
 
 
+# Service Tracker
+PRODUCT_PACKAGES += \
+    vendor.qti.hardware.servicetracker@1.2.vendor
+
 # Shims
 PRODUCT_PACKAGES += \
     libpiex_shim
+
 
 # Shipping API
 PRODUCT_SHIPPING_API_LEVEL := 30
@@ -565,7 +567,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_SOONG_NAMESPACES += \
     vendor/qcom/opensource/usb/etc \
-    hardware/xiaomi
+    hardware/xiaomi 
     
 
 # Vendor service manager
