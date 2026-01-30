@@ -12,14 +12,14 @@ import android.os.Message;
 import android.util.Log;
 
 import androidx.preference.Preference;
-import androidx.preference.PreferenceFragmentCompat;
+import com.android.settingslib.widget.SettingsBasePreferenceFragment;
 import androidx.preference.SwitchPreferenceCompat;
 
 import org.lineageos.devicesettings.R;
 
 import java.io.IOException;
 
-public class ClearSpeakerFragment extends PreferenceFragmentCompat implements
+public class ClearSpeakerFragment extends SettingsBasePreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String TAG = ClearSpeakerFragment.class.getSimpleName();
@@ -33,7 +33,7 @@ public class ClearSpeakerFragment extends PreferenceFragmentCompat implements
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-        addPreferencesFromResource(R.xml.clear_speaker_settings);
+        setPreferencesFromResource(R.xml.clear_speaker_settings, rootKey);
 
         mClearSpeakerPref = (SwitchPreferenceCompat) findPreference(PREF_CLEAR_SPEAKER);
         mClearSpeakerPref.setOnPreferenceChangeListener(this);

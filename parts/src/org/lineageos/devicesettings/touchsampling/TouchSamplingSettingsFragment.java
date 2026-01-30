@@ -23,14 +23,14 @@ import android.content.Context;
 
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
-import androidx.preference.PreferenceFragment;
+import com.android.settingslib.widget.SettingsBasePreferenceFragment;
 import androidx.preference.SwitchPreferenceCompat;
 
 import org.lineageos.devicesettings.R;
 
 import org.lineageos.devicesettings.utils.FileUtils;
 
-public class TouchSamplingSettingsFragment extends PreferenceFragment implements
+public class TouchSamplingSettingsFragment extends SettingsBasePreferenceFragment implements
         OnPreferenceChangeListener {
     
     private SwitchPreferenceCompat mTouchSamplingPreference;
@@ -40,7 +40,7 @@ public class TouchSamplingSettingsFragment extends PreferenceFragment implements
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-      addPreferencesFromResource(R.xml.htsr_settings);
+      setPreferencesFromResource(R.xml.htsr_settings, rootKey);
         mTouchSamplingPreference = (SwitchPreferenceCompat) findPreference(HTSR_ENABLE_KEY);
             mTouchSamplingPreference.setEnabled(true);
             mTouchSamplingPreference.setOnPreferenceChangeListener(this);

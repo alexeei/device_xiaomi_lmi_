@@ -18,7 +18,7 @@
 package org.lineageos.devicesettings.popupcamera;
 
 import android.os.Bundle;
-import android.app.Fragment;
+import androidx.fragment.app.Fragment;
 
 
 import com.android.settingslib.collapsingtoolbar.CollapsingToolbarBaseActivity;
@@ -31,8 +31,7 @@ public class PopupCameraSettingsActivity extends CollapsingToolbarBaseActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-
-     getFragmentManager().beginTransaction().replace(com.android.settingslib.collapsingtoolbar.R.id.content_frame,
+  getSupportFragmentManager().beginTransaction().replace(com.android.settingslib.collapsingtoolbar.R.id.content_frame,
         new PopupCameraSettingsFragment(), TAG_POPUPCAMERA).commit();
 
         }

@@ -21,7 +21,7 @@ import android.os.Bundle;
 
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
-import androidx.preference.PreferenceFragment;
+import com.android.settingslib.widget.SettingsBasePreferenceFragment;
 import androidx.preference.SwitchPreferenceCompat;
 
 import android.content.SharedPreferences;
@@ -34,7 +34,7 @@ import org.lineageos.devicesettings.utils.FileUtils;
 
 import java.io.File;
 
-public class DcDimmingSettingsFragment extends PreferenceFragment implements
+public class DcDimmingSettingsFragment extends SettingsBasePreferenceFragment implements
         OnPreferenceChangeListener {
 
     private SwitchPreferenceCompat mDcDimmingPreference;
@@ -43,7 +43,7 @@ public class DcDimmingSettingsFragment extends PreferenceFragment implements
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-        addPreferencesFromResource(R.xml.dcdimming_settings);
+        setPreferencesFromResource(R.xml.dcdimming_settings,rootKey);
         mDcDimmingPreference = (SwitchPreferenceCompat) findPreference(DC_DIMMING_ENABLE_KEY);
         if (FileUtils.fileExists(DC_DIMMING_NODE)) {
             mDcDimmingPreference.setEnabled(true);

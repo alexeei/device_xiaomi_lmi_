@@ -24,14 +24,14 @@ import android.provider.Settings;
 
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
-import androidx.preference.PreferenceFragment;
+import com.android.settingslib.widget.SettingsBasePreferenceFragment;
 import androidx.preference.SwitchPreferenceCompat;
 
 import org.lineageos.devicesettings.R;
 import org.lineageos.devicesettings.fch.FchUtils;
 import org.lineageos.devicesettings.utils.FileUtils;
 
-public class FchSettingsFragment extends PreferenceFragment implements
+public class FchSettingsFragment extends SettingsBasePreferenceFragment implements
         OnPreferenceChangeListener {
 
     private static final String FCH_ENABLE_KEY = "fch_enable";
@@ -41,7 +41,7 @@ public class FchSettingsFragment extends PreferenceFragment implements
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-      addPreferencesFromResource(R.xml.fch_settings);
+      setPreferencesFromResource(R.xml.fch_settings, rootKey);
         getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
         mFCHPreference = (SwitchPreferenceCompat) findPreference(FCH_ENABLE_KEY);
         mFCHPreference.setEnabled(true);
