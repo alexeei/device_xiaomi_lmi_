@@ -1,6 +1,5 @@
 soong_namespace {
 imports: [
-        "bootable/deprecated-ota",
         "hardware/xiaomi",
 	    "vendor/qcom/opensource/usb/etc",
      
