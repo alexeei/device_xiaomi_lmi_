@@ -61,6 +61,8 @@ on fs
     mkdir /mnt/vendor/persist/data 0700 system system
 
 on post-fs
+    # AW882xx fw load path
+    write /sys/module/firmware_class/parameters/path /vendor/firmware
     # Set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
     write /dev/ipa 1
