@@ -64,3 +64,6 @@ ro.vendor.qti.va_aosp.support=1
 audio.offload.buffer.size.kb=256
 audio.offload.gapless.enabled=true
 
+# Increase max cached processes
+activity_manager.max_cached_processes=64
+
