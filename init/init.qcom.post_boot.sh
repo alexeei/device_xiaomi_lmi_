@@ -198,7 +198,7 @@ case "$target" in
     echo 100 > /sys/class/drm/card0/device/idle_timeout_ms
 
 	# configure governor settings for silver cluster
-	#echo "schedhorizon" > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
+	echo "schedhorizon" > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
 	#echo 614000 > /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
 
 	# configure governor settings for gold cluster
