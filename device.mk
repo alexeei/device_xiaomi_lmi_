@@ -297,8 +297,8 @@ PRODUCT_PACKAGES += \
    android.hardware.ir-service.lineage
 
 # Keymaster
-PRODUCT_PACKAGES += \
-    android.hardware.keymaster@4.1.vendor
+#PRODUCT_PACKAGES += \
+ #   android.hardware.keymaster@4.1.vendor
 
 # KProfiles
 #PRODUCT_PACKAGES += \
@@ -445,6 +445,7 @@ PRODUCT_PACKAGES += \
     android.hardware.power-service-qti \
     vendor.qti.hardware.perf@2.2.vendor 
 
+$(call soong_config_set,qtipower,tap_to_wake_node,/sys/touchpanel/double_tap)
 
 # Protobuf
 PRODUCT_PACKAGES += \
@@ -597,6 +598,7 @@ PRODUCT_PACKAGES += \
     wpa_supplicant \
     wpa_supplicant.conf
     
+
 PRODUCT_PACKAGES += \
     firmware_WCNSS_qcom_cfg.ini_symlink \
     firmware_wlan_mac.bin_symlink

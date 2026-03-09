@@ -5,4 +5,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/infinity_lmi.mk
+    $(LOCAL_DIR)/lineage_lmi.mk
