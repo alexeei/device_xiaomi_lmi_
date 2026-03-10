@@ -285,8 +285,7 @@ vendor.pasr.activemode.enabled=true
 
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so
-ro.vendor.perf-hal.ver=2.2
-#vendor.perf.framepacing.enable=1
+vendor.perf.framepacing.enable=1
 #persist.sys.perf.scroll_opt=true
 #persist.sys.perf.scroll_opt.heavy_app=1
 

@@ -91,8 +91,8 @@ PRODUCT_PACKAGES += \
     com.dsi.ant@1.0.vendor
 
 # Atrace
-PRODUCT_PACKAGES += \
-    android.hardware.atrace@1.0-service
+#PRODUCT_PACKAGES += \
+ #   android.hardware.atrace@1.0-service
 
 # ART
 ART_BUILD_TARGET_NDEBUG := true
@@ -428,7 +428,6 @@ PRODUCT_PACKAGES += \
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
-
 # Parts
 PRODUCT_PACKAGES += \
     DeviceParts
@@ -442,8 +441,12 @@ PRODUCT_COPY_FILES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power-service-qti \
-    vendor.qti.hardware.perf@2.2.vendor 
+    android.hardware.power-service.lineage-libperfmgr \
+    libqti-perfd-client 
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+
 
 $(call soong_config_set,qtipower,tap_to_wake_node,/sys/touchpanel/double_tap)
 
@@ -568,7 +571,11 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_SOONG_NAMESPACES += \
     vendor/qcom/opensource/usb/etc \
-    hardware/xiaomi 
+    hardware/google/interfaces \
+    hardware/google/pixel \
+    hardware/lineage/interfaces/power-libperfmgr \
+    hardware/qcom-caf/common/libqti-perfd-client \
+    hardware/xiaomi
     
 
 # Vendor service manager

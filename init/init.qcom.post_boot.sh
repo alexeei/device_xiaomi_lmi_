@@ -202,11 +202,10 @@ case "$target" in
 	#echo 614000 > /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
 
 	# configure governor settings for gold cluster
-	#echo "schedhorizon" > /sys/devices/system/cpu/cpufreq/policy4/scaling_governor
+	echo "schedhorizon" > /sys/devices/system/cpu/cpufreq/policy4/scaling_governor
 
 	# configure governor settings for gold+ cluster
-	#echo "schedhorizon" > /sys/devices/system/cpu/cpufreq/policy7/scaling_governor
-
+	echo "schedhorizon" > /sys/devices/system/cpu/cpufreq/policy7/scaling_governor
 
 	# Enable bus-dcvs
 	for device in /sys/devices/platform/soc
