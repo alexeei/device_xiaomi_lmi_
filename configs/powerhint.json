@@ -211,7 +211,7 @@
     },
     {
       "Name": "TopAppUclampMin",
-      "Path": "/sys/fs/cgroup/cpu/top-app/cpu.uclamp.min",
+      "Path": "/dev/cpuctl/top-app/cpu.uclamp.min",
       "Values": [
         "0",
         "102",
@@ -227,7 +227,7 @@
     },
     {
       "Name": "ForegroundUclampMin",
-      "Path": "/sys/fs/cgroup/cpu/foreground/cpu.uclamp.min",
+      "Path": "/dev/cpuctl/foreground/cpu.uclamp.min",
       "Values": [
         "0",
         "102",
@@ -375,6 +375,48 @@
         ""
       ],
       "Type": "Property"
+    },
+    {
+      "Name": "CpusetBackground",
+      "Path": "/dev/cpuset/background/cpus",
+      "Values": ["0-3", "0-7"],
+      "ResetOnInit": true
+    },
+    {
+      "Name": "CpusetForeground",
+      "Path": "/dev/cpuset/foreground/cpus",
+      "Values": ["0-3", "0-7"],
+      "ResetOnInit": true
+    },
+    {
+      "Name": "CpusetTopApp",
+      "Path": "/dev/cpuset/top-app/cpus",
+      "Values": ["0-7", "0-3"],
+      "ResetOnInit": true
+    },
+    {
+      "Name": "CPU4Online",
+      "Path": "/sys/devices/system/cpu/cpu4/online",
+      "Values": ["0", "1"],
+      "ResetOnInit": true
+    },
+    {
+      "Name": "CPU5Online",
+      "Path": "/sys/devices/system/cpu/cpu5/online",
+      "Values": ["0", "1"],
+      "ResetOnInit": true
+    },
+    {
+      "Name": "CPU6Online",
+      "Path": "/sys/devices/system/cpu/cpu6/online",
+      "Values": ["0", "1"],
+      "ResetOnInit": true
+    },
+    {
+      "Name": "CPU7Online",
+      "Path": "/sys/devices/system/cpu/cpu7/online",
+      "Values": ["0", "1"],
+      "ResetOnInit": true
     }
   ],
   "Actions": [
@@ -625,76 +667,124 @@
       "Value": "0"
     },
     {
-      "PowerHint": "DISPLAY_STATE_CHANGED",
+      "PowerHint": "DISPLAY_INACTIVE",
       "Node": "CPULittleClusterMinFreq",
       "Duration": 0,
       "Value": "300000"
     },
     {
-      "PowerHint": "DISPLAY_STATE_CHANGED",
+      "PowerHint": "DISPLAY_INACTIVE",
       "Node": "CPULittleClusterMaxFreq",
       "Duration": 0,
       "Value": "300000"
     },
     {
-      "PowerHint": "DISPLAY_STATE_CHANGED",
+      "PowerHint": "DISPLAY_INACTIVE",
       "Node": "CPUBigClusterMinFreq",
       "Duration": 0,
       "Value": "710400"
     },
     {
-      "PowerHint": "DISPLAY_STATE_CHANGED",
+      "PowerHint": "DISPLAY_INACTIVE",
       "Node": "CPUBigClusterMaxFreq",
       "Duration": 0,
       "Value": "710400"
     },
     {
-      "PowerHint": "DISPLAY_STATE_CHANGED",
+      "PowerHint": "DISPLAY_INACTIVE",
       "Node": "CPUBigPlusClusterMinFreq",
       "Duration": 0,
       "Value": "844800"
     },
     {
-      "PowerHint": "DISPLAY_STATE_CHANGED",
+      "PowerHint": "DISPLAY_INACTIVE",
       "Node": "CPUBigPlusClusterMaxFreq",
       "Duration": 0,
       "Value": "844800"
     },
     {
-      "PowerHint": "DISPLAY_STATE_CHANGED",
+      "PowerHint": "DISPLAY_INACTIVE",
       "Node": "TopAppUclampMin",
       "Duration": 0,
       "Value": "0"
     },
     {
-      "PowerHint": "DISPLAY_STATE_CHANGED",
+      "PowerHint": "DISPLAY_INACTIVE",
       "Node": "CPUBWMinFreq",
       "Duration": 0,
       "Value": "2288"
     },
     {
-      "PowerHint": "DISPLAY_STATE_CHANGED",
+      "PowerHint": "DISPLAY_INACTIVE",
       "Node": "LLCCBWMinFreq",
       "Duration": 0,
       "Value": "762"
     },
     {
-      "PowerHint": "DISPLAY_STATE_CHANGED",
+      "PowerHint": "DISPLAY_INACTIVE",
       "Node": "L3LittleClusterMinFreq",
       "Duration": 0,
       "Value": "300000000"
     },
     {
-      "PowerHint": "DISPLAY_STATE_CHANGED",
+      "PowerHint": "DISPLAY_INACTIVE",
       "Node": "L3BigClusterMinFreq",
       "Duration": 0,
       "Value": "300000000"
     },
     {
-      "PowerHint": "DISPLAY_STATE_CHANGED",
+      "PowerHint": "DISPLAY_INACTIVE",
       "Node": "L3BigPlusClusterMinFreq",
       "Duration": 0,
       "Value": "300000000"
+    },
+    {
+      "PowerHint": "DISPLAY_INACTIVE",
+      "Node": "GPUMaxFreq",
+      "Duration": 0,
+      "Value": "8"
+    },
+    {
+      "PowerHint": "DISPLAY_INACTIVE",
+      "Node": "GPUMinFreq",
+      "Duration": 0,
+      "Value": "8"
+    },
+    {
+      "PowerHint": "DISPLAY_INACTIVE",
+      "Node": "GPUForceRailOn",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "DISPLAY_INACTIVE",
+      "Node": "GPUForceClkOn",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "DISPLAY_INACTIVE",
+      "Node": "CPU4Online",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "DISPLAY_INACTIVE",
+      "Node": "CPU5Online",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "DISPLAY_INACTIVE",
+      "Node": "CPU6Online",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "DISPLAY_INACTIVE",
+      "Node": "CPU7Online",
+      "Duration": 0,
+      "Value": "0"
     },
     {
       "PowerHint": "DOUBLE_TAP_TO_WAKE",

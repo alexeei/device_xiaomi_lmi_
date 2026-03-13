@@ -199,7 +199,7 @@ case "$target" in
 
 	# configure governor settings for silver cluster
 	echo "schedhorizon" > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
-	#echo 614000 > /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
+	echo 400000 > /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
 
 	# configure governor settings for gold cluster
 	echo "schedhorizon" > /sys/devices/system/cpu/cpufreq/policy4/scaling_governor
