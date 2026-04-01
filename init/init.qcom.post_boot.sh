@@ -29,65 +29,9 @@
 
 target=`getprop ro.board.platform`
 
-function configure_read_ahead_kb_values() {
-    MemTotalStr=`cat /proc/meminfo | grep MemTotal`
-    MemTotal=${MemTotalStr:16:8}
 
-    dmpts=$(ls /sys/block/*/queue/read_ahead_kb | grep -e dm -e mmc)
 
-    # Set 128 for <= 3GB &
-    # set 512 for >= 4GB targets.
-    if [ $MemTotal -le 3145728 ]; then
-        echo 128 > /sys/block/mmcblk0/bdi/read_ahead_kb
-        echo 128 > /sys/block/mmcblk0rpmb/bdi/read_ahead_kb
-        for dm in $dmpts; do
-            echo 128 > $dm
-        done
-    else
-        echo 512 > /sys/block/mmcblk0/bdi/read_ahead_kb
-        echo 512 > /sys/block/mmcblk0rpmb/bdi/read_ahead_kb
-        for dm in $dmpts; do
-            echo 512 > $dm
-        done
-    fi
-}
 
-function disable_core_ctl() {
-    if [ -f /sys/devices/system/cpu/cpu0/core_ctl/enable ]; then
-        echo 0 > /sys/devices/system/cpu/cpu0/core_ctl/enable
-    else
-        echo 1 > /sys/devices/system/cpu/cpu0/core_ctl/disable
-    fi
-}
-
-function enable_swap() {
-    MemTotalStr=`cat /proc/meminfo | grep MemTotal`
-    MemTotal=${MemTotalStr:16:8}
-
-    SWAP_ENABLE_THRESHOLD=1048576
-    swap_enable=`getprop ro.vendor.qti.config.swap`
-
-    # Enable swap initially only for 1 GB targets
-    if [ "$MemTotal" -le "$SWAP_ENABLE_THRESHOLD" ] && [ "$swap_enable" == "true" ]; then
-        # Static swiftness
-        echo 1 > /proc/sys/vm/swap_ratio_enable
-        echo 70 > /proc/sys/vm/swap_ratio
-
-        # Swap disk - 200MB size
-        if [ ! -f /data/vendor/swap/swapfile ]; then
-            dd if=/dev/zero of=/data/vendor/swap/swapfile bs=1m count=200
-        fi
-        mkswap /data/vendor/swap/swapfile
-        swapon /data/vendor/swap/swapfile -p 32758
-    fi
-}
-
-function disable_ppr()
-{
-   if [ -f  /sys/module/process_reclaim/parameters/enable_process_reclaim ]; then
-       echo 0 > /sys/module/process_reclaim/parameters/enable_process_reclaim
-   fi
-}
 
 function configure_memory_parameters() {
     # Set Memory parameters.
@@ -117,30 +61,9 @@ if [ "$ProductName" == "msmnile" ] || [ "$ProductName" == "kona" ] || [ "$Produc
 fi
 }
 
-function enable_memory_features()
-{
-    MemTotalStr=`cat /proc/meminfo | grep MemTotal`
-    MemTotal=${MemTotalStr:16:8}
 
-    if [ $MemTotal -le 2097152 ]; then
-        #Enable B service adj transition for 2GB or less memory
-        setprop ro.vendor.qti.sys.fw.bservice_enable true
-        setprop ro.vendor.qti.sys.fw.bservice_limit 5
-        setprop ro.vendor.qti.sys.fw.bservice_age 5000
 
-        #Enable Delay Service Restart
-        setprop ro.vendor.qti.am.reschedule_service true
-    fi
-}
 
-function start_hbtp()
-{
-        # Start the Host based Touch processing but not in the power off mode.
-        bootmode=`getprop ro.bootmode`
-        if [ "charger" != $bootmode ]; then
-                start vendor.hbtp
-        fi
-}
 
 case "$target" in
 	"kona")

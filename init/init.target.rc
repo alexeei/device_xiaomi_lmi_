@@ -51,6 +51,10 @@ on early-fs
 # Enable suspend to RAM
     write /sys/power/mem_sleep "deep"
 
+on init
+    # Make it go until USB Gadget HAL takes over
+    setprop sys.usb.configfs 1
+
 on fs
     start hwservicemanager
     mkdir /mnt/vendor/spunvm 0660 system system
@@ -125,12 +129,11 @@ on property:sys.boot_completed=1
     # Enable ZRAM on boot_complete
     rm /data/unencrypted/zram_swap
     swapon_all /vendor/etc/fstab.qcom
-    write /proc/sys/vm/swappiness 100
+
 
 on charger
     start vendor.power_off_alarm
     setprop sys.usb.controller a600000.dwc3
-    setprop sys.usb.configfs 1
     chown system system /sys/class/leds/red/brightness
     write /sys/class/leds/red/brightness 255
     write /sys/class/leds/white/brightness 255
