@@ -42,8 +42,8 @@ persist.vendor.ims.disableIMSLogs=1
 persist.vendor.ims.disableQXDMLogs=1
 
 # IOP
-#vendor.iop.enable_prefetch_ofr=1
-#vendor.iop.enable_uxe=1
+vendor.iop.enable_prefetch_ofr=1
+vendor.iop.enable_uxe=1
 
 
 
