@@ -74,3 +74,14 @@ ro.vendor.qti.va_aosp.support=1
 audio.offload.buffer.size.kb=256
 audio.offload.gapless.enabled=true
 
+#LMK
+ro.config.low_ram=false
+ro.vendor.lmk.force_inkernel_lmk=false
+ro.lmk.use_psi=true
+ro.lmk.use_minfree_levels=false
+
+ro.lmk.kill_heaviest_task=true
+ro.lmk.kill_timeout_ms=100
+
+ro.lmk.enable_watermark_check=true
+ro.lmk.enhance_batch_kill=false

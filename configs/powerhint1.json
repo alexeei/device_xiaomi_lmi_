@@ -439,6 +439,12 @@
       "Value": "307"
     },
     {
+       "PowerHint": "INTERACTION",
+       "Node": "L3BigClusterMinFreq",
+       "Duration": 0,
+       "Value": "1382400000"
+    },
+    {
       "PowerHint": "INTERACTION",
       "Node": "CPUBWHystTriggerCount",
       "Duration": 0,
@@ -676,7 +682,7 @@
       "PowerHint": "DISPLAY_INACTIVE",
       "Node": "CPULittleClusterMaxFreq",
       "Duration": 0,
-      "Value": "1075200"
+      "Value": "300000"
     },
     {
       "PowerHint": "DISPLAY_INACTIVE",
@@ -766,7 +772,7 @@
       "PowerHint": "DISPLAY_INACTIVE",
       "Node": "CPU4Online",
       "Duration": 0,
-      "Value": "1"
+      "Value": "0"
     },
     {
       "PowerHint": "DISPLAY_INACTIVE",
