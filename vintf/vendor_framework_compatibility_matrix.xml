@@ -82,6 +82,13 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="aidl" optional="true">
+        <name>android.hardware.health</name>
+        <interface>
+             <name>IHealth</name>
+             <instance>default</instance>
+        </interface>
+        </hal>
     <hal format="hidl" optional="true">
         <name>vendor.display.config</name>
         <version>1.5-11</version>
@@ -121,6 +128,14 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         <version>1.0-1</version>
         <interface>
             <name>IEsePowerManager</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>android.hardware.power.stats</name>
+        <version>2</version>
+        <interface>
+            <name>IPowerStats</name>
             <instance>default</instance>
         </interface>
     </hal>

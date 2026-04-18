@@ -38,3 +38,5 @@ vendor.sys.thermal.                         u:object_r:vendor_thermal_normal_pro
 
 # Touchfeature
 ro.vendor.touchfeature.type                 u:object_r:vendor_touchfeature_prop:s0
+
+

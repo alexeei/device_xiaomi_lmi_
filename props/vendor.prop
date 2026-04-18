@@ -283,11 +283,12 @@ ro.vendor.use_data_netmgrd=true
 # PASR
 vendor.pasr.activemode.enabled=true
 
-# Perf
+# Power
 ro.vendor.extension_library=libqti-perfd-client.so
 vendor.perf.framepacing.enable=1
 #persist.sys.perf.scroll_opt=true
 #persist.sys.perf.scroll_opt.heavy_app=1
+persist.device_config.activity_manager.use_freezer=true
 
 # Qualcomm System Daemon
 persist.vendor.qcomsysd.enabled=1

@@ -1,0 +1,9 @@
+service vendor.power-stats /vendor/bin/hw/android.hardware.power.stats-service.default
+    class hal
+    user system
+    group system
+    capabilities SYS_NICE
+    interface aidl android.hardware.power.stats.IPowerStats/default
+    disabled
+    oneshot
+    seclabel u:r:hal_power_stats_default:s0

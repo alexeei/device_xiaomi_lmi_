@@ -442,10 +442,21 @@ PRODUCT_COPY_FILES += \
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power-service.lineage-libperfmgr \
-    libqti-perfd-client 
+    android.hardware.power.stats-service.default \
+    android.hardware.power.stats-service.default.xml \
+    libqti-perfd-client \
+    android.hardware.health@2.1-impl \
+    android.hardware.health@2.1-service
+
+
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+
+# Cgroup and task_profiles
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/cgroups.json:$(TARGET_COPY_OUT_VENDOR)/etc/cgroups.json \
+    $(LOCAL_PATH)/configs/task_profiles.json:$(TARGET_COPY_OUT_VENDOR)/etc/task_profiles.json
 
 
 $(call soong_config_set,qtipower,tap_to_wake_node,/sys/touchpanel/double_tap)

@@ -6,3 +6,8 @@ dontaudit linkerconfig self:capability kill;
 
 # b/152468658
 dontaudit vdc self:capability kill;
+
+dontaudit untrusted_app proc_kallsyms:file getattr;
+dontaudit untrusted_app proc_keys:file getattr;
+dontaudit untrusted_app proc_modules:file getattr;
+dontaudit untrusted_app selinuxfs:file read;
