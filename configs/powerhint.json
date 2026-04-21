@@ -625,7 +625,7 @@
       "PowerHint": "DISPLAY_INACTIVE",
       "Node": "CPULittleClusterMinFreq",
       "Duration": 0,
-      "Value": "300000"
+      "Value": "518400"
     },
     {
       "PowerHint": "DISPLAY_INACTIVE",
@@ -679,7 +679,7 @@
       "PowerHint": "DISPLAY_INACTIVE",
       "Node": "L3LittleClusterMinFreq",
       "Duration": 0,
-      "Value": "518400"
+      "Value": "300000000"
     },
     {
       "PowerHint": "DISPLAY_INACTIVE",
