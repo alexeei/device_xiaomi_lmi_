@@ -79,7 +79,7 @@ ro.config.low_ram=false
 ro.vendor.lmk.force_inkernel_lmk=false
 ro.lmk.use_psi=true
 ro.lmk.use_minfree_levels=false
-
+persist.device_config.lmkd_native.thrashing_limit_critical=500
 ro.lmk.kill_heaviest_task=true
 ro.lmk.kill_timeout_ms=100
 

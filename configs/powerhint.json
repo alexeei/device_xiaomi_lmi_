@@ -352,43 +352,91 @@
     {
       "Name": "CpusetBackground",
       "Path": "/dev/cpuset/background/cpus",
-      "Values": ["0-3", "0-7"],
+      "Values": [
+        "0-3",
+        "0-2"
+      ],
       "ResetOnInit": true
     },
     {
       "Name": "CpusetForeground",
       "Path": "/dev/cpuset/foreground/cpus",
-      "Values": ["0-3", "0-7"],
+      "Values": [
+        "0-6",
+        "0-5"
+      ],
       "ResetOnInit": true
     },
     {
       "Name": "CpusetTopApp",
       "Path": "/dev/cpuset/top-app/cpus",
-      "Values": ["0-7", "0-3"],
+      "Values": [
+        "0-7",
+        "0-6"
+      ],
       "ResetOnInit": true
     },
     {
       "Name": "CPU4Online",
       "Path": "/sys/devices/system/cpu/cpu4/online",
-      "Values": ["0", "1"],
+      "Values": [
+        "0",
+        "1"
+      ],
       "ResetOnInit": true
     },
     {
       "Name": "CPU5Online",
       "Path": "/sys/devices/system/cpu/cpu5/online",
-      "Values": ["0", "1"],
+      "Values": [
+        "0",
+        "1"
+      ],
       "ResetOnInit": true
     },
     {
       "Name": "CPU6Online",
       "Path": "/sys/devices/system/cpu/cpu6/online",
-      "Values": ["0", "1"],
+      "Values": [
+        "0",
+        "1"
+      ],
       "ResetOnInit": true
     },
     {
       "Name": "CPU7Online",
       "Path": "/sys/devices/system/cpu/cpu7/online",
-      "Values": ["0", "1"],
+      "Values": [
+        "0",
+        "1"
+      ],
+      "ResetOnInit": true
+    },
+    {
+      "Name": "CpusetSystemBackground",
+      "Path": "/dev/cpuset/system-background/cpus",
+      "Values": [
+        "0-4",
+        "0-3"
+      ],
+      "ResetOnInit": true
+    },
+    {
+      "Name": "CpusetRestricted",
+      "Path": "/dev/cpuset/restricted/cpus",
+      "Values": [
+        "0-2",
+        "0-1"
+      ],
+      "ResetOnInit": true
+    },
+    {
+      "Name": "CpusetCameraDaemon",
+      "Path": "/dev/cpuset/camera-daemon/cpus",
+      "Values": [
+        "0-6",
+        "0-7"
+      ],
       "ResetOnInit": true
     }
   ],
@@ -625,7 +673,7 @@
       "PowerHint": "DISPLAY_INACTIVE",
       "Node": "CPULittleClusterMinFreq",
       "Duration": 0,
-      "Value": "518400"
+      "Value": "300000"
     },
     {
       "PowerHint": "DISPLAY_INACTIVE",
