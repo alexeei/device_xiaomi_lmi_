@@ -26,12 +26,21 @@
 # OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
+# ---------------------------------------------------------------------------
+# MODIFIED for custom kernel 4.19.331-cip130 (mainline EAS + uclamp scheduler)
+# Removed: legacy WALT/core_ctl/schedtune tuning (sched_upmigrate, sched_downmigrate,
+#          sched_group_upmigrate, sched_group_downmigrate, sched_coloc_downmigrate_ns,
+#          sched_boost, core_ctl/* for cpu0/cpu4/cpu7, audio-app and foreground/boost
+#          cpusets) - none of these sysfs nodes exist on this kernel; it uses
+#          mainline EAS (sched_energy_aware) + uclamp (cpu.uclamp.min/max via
+#          cgroups, sched_util_clamp_min/max) instead, configured via
+#          task_profiles.json / powerhint.json.
+# Fixed: top-app/foreground cpuset ranges now include cpu7 (gold+/prime core),
+#        previously capped at 0-6/0-5 which excluded the fastest core from
+#        foreground and top-app scheduling entirely.
+# ---------------------------------------------------------------------------
 
 target=`getprop ro.board.platform`
-
-
-
-
 
 function configure_memory_parameters() {
     # Set Memory parameters.
@@ -61,10 +70,6 @@ if [ "$ProductName" == "msmnile" ] || [ "$ProductName" == "kona" ] || [ "$Produc
 fi
 }
 
-
-
-
-
 case "$target" in
 	"kona")
 	rev=`cat /sys/devices/soc0/revision`
@@ -72,55 +77,21 @@ case "$target" in
 	ddr_type4="07"
 	ddr_type5="08"
 
-	# Core control parameters for gold
-	echo 1 > /sys/devices/system/cpu/cpu4/core_ctl/min_cpus
-	echo 80 > /sys/devices/system/cpu/cpu4/core_ctl/busy_up_thres
-	echo 30 > /sys/devices/system/cpu/cpu4/core_ctl/busy_down_thres
-	echo 100 > /sys/devices/system/cpu/cpu4/core_ctl/offline_delay_ms
-	echo 10 > /sys/devices/system/cpu/cpu4/core_ctl/task_thres
-
-	# Core control parameters for gold+
-	echo 0 > /sys/devices/system/cpu/cpu7/core_ctl/min_cpus
-	echo 80 > /sys/devices/system/cpu/cpu7/core_ctl/busy_up_thres
-	echo 40 > /sys/devices/system/cpu/cpu7/core_ctl/busy_down_thres
-	echo 100 > /sys/devices/system/cpu/cpu7/core_ctl/offline_delay_ms
-	echo 10 > /sys/devices/system/cpu/cpu7/core_ctl/task_thres
-	# Controls how many more tasks should be eligible to run on gold CPUs
-	# w.r.t number of gold CPUs available to trigger assist (max number of
-	# tasks eligible to run on previous cluster minus number of CPUs in
-	# the previous cluster).
-	#
-	# Setting to 1 by default which means there should be at least
-	# 4 tasks eligible to run on gold cluster (tasks running on gold cores
-	# plus misfit tasks on silver cores) to trigger assitance from gold+.
-	echo 5 > /sys/devices/system/cpu/cpu7/core_ctl/nr_prev_assist_thresh
-
-	# Disable Core control on silver
-	echo 0 > /sys/devices/system/cpu/cpu0/core_ctl/enable
-
-	# Setting b.L scheduler parameters
-	echo 90 > /proc/sys/kernel/sched_upmigrate
-	echo 60 > /proc/sys/kernel/sched_downmigrate
-	echo 90 > /proc/sys/kernel/sched_group_upmigrate
-	echo 50 > /proc/sys/kernel/sched_group_downmigrate
-	echo 400000000 > /proc/sys/kernel/sched_coloc_downmigrate_ns
-
 	# cpuset parameters
-    echo 1-2     > /dev/cpuset/audio-app/cpus
+	# NOTE: top-app and foreground now include cpu7 (gold+/prime core).
+	# Previously capped at 0-6/0-5 which silently excluded the fastest
+	# core from all foreground/top-app scheduling for the entire uptime.
+	echo 1-2     > /dev/cpuset/audio-app/cpus
 	echo 0-2     > /dev/cpuset/background/cpus
 	echo 0-3     > /dev/cpuset/system-background/cpus
-	echo 4-6     > /dev/cpuset/foreground/boost/cpus
-	echo 0-5     > /dev/cpuset/foreground/cpus
-	echo 0-6     > /dev/cpuset/top-app/cpus
-    echo 0-1 > /dev/cpuset/restricted/cpus
-    echo 0-7 > /dev/cpuset/camera-daemon/cpus
+	echo 0-6     > /dev/cpuset/foreground/cpus
+	echo 0-7     > /dev/cpuset/top-app/cpus
+	echo 0-1     > /dev/cpuset/restricted/cpus
+	echo 0-7     > /dev/cpuset/camera-daemon/cpus
 
-	# Turn off scheduler boost at the end
-	echo 0 > /proc/sys/kernel/sched_boost
-
-    # Enable idle state listener
-    echo 1 > /sys/class/drm/card0/device/idle_encoder_mask
-    echo 100 > /sys/class/drm/card0/device/idle_timeout_ms
+	# Enable idle state listener
+	echo 1 > /sys/class/drm/card0/device/idle_encoder_mask
+	echo 100 > /sys/class/drm/card0/device/idle_timeout_ms
 
 	# configure governor settings for silver cluster
 	echo "schedhorizon" > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
@@ -209,17 +180,14 @@ case "$target" in
 		echo 0 > /sys/devices/virtual/npu/msm_npu/pwr
 	    done
 	done
-        # memlat specific settings are moved to seperate file under
-        # device/target specific folder
-        setprop vendor.dcvs.prop 0
+	# memlat specific settings are moved to seperate file under
+	# device/target specific folder
+	setprop vendor.dcvs.prop 0
 	setprop vendor.dcvs.prop 1
-    configure_memory_parameters
-    ;;
+	configure_memory_parameters
+	;;
 esac
 
-chown -h system /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate
-chown -h system /sys/devices/system/cpu/cpufreq/ondemand/sampling_down_factor
-chown -h system /sys/devices/system/cpu/cpufreq/ondemand/io_is_busy
 
 # Post-setup services
 case "$target" in
