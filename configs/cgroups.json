@@ -31,6 +31,15 @@
       {
         "Controller": "freezer",
         "Path": "."
+      },
+      {
+        "Controller": "memory",
+        "Path": ".",
+        "SetDefault": true
+      },
+      {
+        "Controller": "memory",
+        "Path": "apps"
       }
     ]
   }

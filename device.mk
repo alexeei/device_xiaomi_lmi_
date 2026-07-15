@@ -307,7 +307,7 @@ PRODUCT_PACKAGES += \
 
 
 #Kernel
-PRODUCT_ENABLE_UFFD_GC := true
+PRODUCT_ENABLE_UFFD_GC := false
 
 # Lineage Health
 PRODUCT_PACKAGES += \
