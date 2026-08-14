@@ -290,7 +290,7 @@ vendor.perf.framepacing.enable=1
 #persist.sys.perf.scroll_opt=true
 #persist.sys.perf.scroll_opt.heavy_app=1
 persist.device_config.activity_manager.use_freezer=true
-
+persist.device_config.activity_manager.use_compaction=false
 
 # Qualcomm System Daemon
 persist.vendor.qcomsysd.enabled=1

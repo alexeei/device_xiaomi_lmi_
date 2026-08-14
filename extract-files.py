@@ -22,13 +22,6 @@ blob_fixups: blob_fixups_user_type = {
         .regex_replace('.*seclabel u:r:mi_thermald:s0\n', ''),
     'vendor/etc/seccomp_policy/atfwd@2.0.policy': blob_fixup()
         .add_line_if_missing('gettid: 1'),
-    'system/lib64/libcamera_mianode_jni.xiaomi.so': blob_fixup()
-        .add_needed('libgui_camera_shim.so'),
-    'system/lib64/libmicampostproc_client.so': blob_fixup()
-        .remove_needed('libhidltransport.so'),
-    'system/lib64/libcamera_algoup_jni.xiaomi.so': blob_fixup()
-        .add_needed('libgui_camera_shim.so')
-        .sig_replace('08 AD 40 F9', '08 A9 40 F9'),
     'vendor/etc/seccomp_policy/codec2.vendor.base-arm.policy': blob_fixup()
         .regex_replace('futex: 1', '')
         .add_line_if_missing('futex: 1'),
@@ -73,19 +66,6 @@ blob_fixups: blob_fixups_user_type = {
         .clear_symbol_version('AHardwareBuffer_lock')
         .clear_symbol_version('AHardwareBuffer_release')
         .clear_symbol_version('AHardwareBuffer_unlock'),
-     (
-        'vendor/lib64/libMIAIHDRhvx_interface.so',
-        'vendor/lib64/libarcsoft_hdrplus_hvx_stub.so',
-        'vendor/lib64/libarcsoft_super_night_raw.so',
-        'vendor/lib64/libmialgo_rfs.so',
-    ): blob_fixup()
-        .clear_symbol_version('remote_handle_close')
-        .clear_symbol_version('remote_handle_invoke')
-        .clear_symbol_version('remote_handle_open')
-        .clear_symbol_version('remote_handle64_close')
-        .clear_symbol_version('remote_handle64_invoke')
-        .clear_symbol_version('remote_handle64_open')
-        .clear_symbol_version('remote_register_buf_attr'),
     'vendor/lib64/vendor.qti.hardware.camera.postproc@1.0-service-impl.so': blob_fixup()
         .binary_regex_replace(b'\x9A\x0A\x00\x94', b'\x1F\x20\x03\xD5'),  
 } # fmt: skip
@@ -114,7 +94,6 @@ lib_fixups: lib_fixups_user_type = {
 }
 
 module = ExtractUtilsModule(
-    'camera',
     'lmi',
     'xiaomi',
     blob_fixups=blob_fixups,
