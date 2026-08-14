@@ -89,7 +89,8 @@ $(call soong_config_set_bool,camera,override_format_from_reserved,true)
 MALLOC_SVELTE := true
 MALLOC_SVELTE_FOR_LIBC32 := true
 TARGET_INCLUDES_MIUI_CAMERA := true
-TARGET_USES_MIUI_CAMERA := true
+
+$(call soong_config_set,camera,uses_miui_camera,true)
 
 
 
@@ -122,9 +123,7 @@ $(call soong_config_set,libinit,vendor_init_lib,libinit_lmi)
 BOARD_KERNEL_CMDLINE := \
     androidboot.hardware=qcom \
     androidboot.init_fatal_reboot_target=recovery \
-    androidboot.memcg=1 \
     androidboot.usbcontroller=a600000.dwc3 \
-    cgroup.memory=nokmem,nosocket \
     kpti=off \
     loop.max_part=7 \
     lpm_levels.sleep_disabled=1 \
@@ -171,6 +170,10 @@ BOARD_USES_METADATA_PARTITION := true
 
 # Media
 TARGET_USES_ION := true
+
+# Camera - Miui
+$(call soong_config_set,camera,package_name,com.android.camera)
+
 
 # OTA package
 TARGET_OTA_ALLOW_NON_AB := true

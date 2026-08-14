@@ -314,8 +314,6 @@ PRODUCT_PACKAGES += \
     vendor.lineage.health-service.default
 
 
-
-
 # Logging
 SPAMMY_LOG_TAGS := \
      AsyncOperation \
