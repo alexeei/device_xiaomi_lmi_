@@ -157,6 +157,7 @@ TARGET_KERNEL_ADDITIONAL_FLAGS := \
     QCLinker=1
 
 # Kernel Clang Flags
+TARGET_KERNEL_CLANG_VERSION := r563880c
 KERNEL_CC := CC=clang
 override KERNEL_TOOLCHAIN_PREFIX_arm := arm-linux-android-
 
