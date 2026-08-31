@@ -203,9 +203,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libsuspend
 
-# Configstore
-PRODUCT_PACKAGES += \
-    disable_configstore
 
 # Display
 TARGET_USES_VULKAN = true 
