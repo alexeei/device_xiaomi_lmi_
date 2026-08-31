@@ -20,6 +20,7 @@ $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 TARGET_BUILD_APERTURE_CAMERA := false
 TARGET_BOOT_ANIMATION_RES := 1080
 TARGET_SUPPORTS_QUICK_TAP := true
+TARGET_OPTIMIZED_DEXOPT := true
 
 PRODUCT_NAME := lineage_lmi
 PRODUCT_DEVICE := lmi
