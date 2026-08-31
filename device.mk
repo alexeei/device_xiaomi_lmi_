@@ -266,6 +266,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     IFAAService
 
+# ION
+$(call soong_config_set_bool,libion,legacy_impl,true)
+
 # Init
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init/fstab.qcom:$(TARGET_COPY_OUT_RAMDISK)/fstab.qcom \
