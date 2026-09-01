@@ -27,6 +27,7 @@
     "Mode": "0775",
     "UID": "system",
     "GID": "system",
+    "Location": "root",
     "Controllers": [
       {
         "Controller": "freezer",

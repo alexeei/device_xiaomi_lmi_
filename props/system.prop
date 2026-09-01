@@ -83,7 +83,7 @@ persist.device_config.lmkd_native.thrashing_limit_critical=500
 #persist.device_config.lmkd_native.psi_partial_stall_ms=150
 #persist.device_config.lmkd_native.psi_complete_stall_ms=700
 ro.lmk.kill_heaviest_task=true
-ro.lmk.swap_free_low_percentage=20
+ro.lmk.swap_free_low_percentage=10
 ro.lmk.kill_timeout_ms=200
 
 ro.lmk.enable_watermark_check=true
