@@ -22,3 +22,6 @@ persist.arm64.memtag.process.system_server=off
 remote_provisioning.enable_rkpd=true
 remote_provisioning.hostname=remoteprovisioning.googleapis.com
 
+# SoC
+ro.build.product=lmi
+

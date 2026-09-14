@@ -251,10 +251,10 @@ PRODUCT_PACKAGES += \
 
 # Health
 PRODUCT_PACKAGES += \
-    android.hardware.health-service.qti
+    android.hardware.health-service.qti \
+    android.hardware.health-service.qti_recovery
 
-PRODUCT_PACKAGES += \
-    android.hardware.health@2.1.vendor
+
 
 # HotwordEnrollement
 PRODUCT_COPY_FILES += \
@@ -446,9 +446,7 @@ PRODUCT_PACKAGES += \
     android.hardware.power-service.lineage-libperfmgr \
     android.hardware.power.stats-service.default \
     android.hardware.power.stats-service.default.xml \
-    libqti-perfd-client \
-    android.hardware.health@2.1-impl \
-    android.hardware.health@2.1-service
+    libqti-perfd-client 
 
 
 
@@ -526,7 +524,7 @@ PRODUCT_PACKAGES += \
 
 
 # Shipping API
-PRODUCT_SHIPPING_API_LEVEL := 30
+PRODUCT_SHIPPING_API_LEVEL := 31
 PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS=false
 
 # Speed up

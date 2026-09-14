@@ -30,7 +30,7 @@ namespace stats {
 
 // ==================== Constants ====================
 
-constexpr const char* kProcStat = "/proc/stat";
+//constexpr const char* kProcStat = "/proc/stat";
 constexpr const char* kGpuFreqPath = "/sys/class/kgsl/kgsl-3d0/gpuclk";
 constexpr const char* kGpuBusyPath = "/sys/class/kgsl/kgsl-3d0/gpu_busy_percentage";
 constexpr const char* kBatteryVoltagePath = "/sys/class/power_supply/battery/voltage_now";

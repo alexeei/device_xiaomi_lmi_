@@ -125,6 +125,7 @@ BOARD_KERNEL_CMDLINE := \
     androidboot.memcg=1 \
     androidboot.usbcontroller=a600000.dwc3 \
     cgroup.memory=nokmem,nosocket \
+    cgroup_disable=pressure \
     kpti=off \
     loop.max_part=7 \
     lpm_levels.sleep_disabled=1 \
@@ -142,7 +143,15 @@ BOARD_RAMDISK_OFFSET := 0x01000000
 
 BOARD_RAMDISK_USE_LZ4 := true
 TARGET_KERNEL_ARCH := arm64
+TARGET_KERNEL_HEADER_ARCH := arm64
+
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-gnu-
+TARGET_KERNEL_CROSS_COMPILE_ARM32_PREFIX := arm-linux-gnueabi-
+
+# Указание Clang без TARGET_KERNEL_ADDITIONAL_FLAGS:
+TARGET_KERNEL_CLANG_COMPILE := true
+
+TARGET_KERNEL_CLANG_TRIPLE := aarch64-linux-gnu-
 
 #BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 
@@ -151,10 +160,15 @@ TARGET_KERNEL_ADDITIONAL_FLAGS := DTC_EXT=$(shell pwd)/prebuilts/misc/$(HOST_OS)
 TARGET_KERNEL_SOURCE := kernel/xiaomi/sm8250
 TARGET_KERNEL_CONFIG := vendor/lmi_defconfig
 TARGET_KERNEL_LLVM_BINUTILS := true
-TARGET_KERNEL_ADDITIONAL_FLAGS := \
+KERNEL_EXTRA_ARGS := \
+    ARCH=arm64 \
+    SUBARCH=arm64 \
+    CC=clang \
+    CLANG_TRIPLE=aarch64-linux-gnu- \
+    CROSS_COMPILE=aarch64-linux-gnu- \
+    CROSS_COMPILE_ARM32=arm-linux-gnueabi- \
     LLVM=1 \
-    LLVM_IAS=1 \
-    QCLinker=1
+    LLVM_IAS=1
 
 # Kernel Clang Flags
 TARGET_KERNEL_CLANG_VERSION := r563880c

@@ -331,8 +331,9 @@ persist.vendor.sensors.debug.hal=0
 persist.vendor.sensors.sync_request=true
 
 # SoC
-ro.soc.manufacturer=Qualcomm
+ro.soc.manufacturer=QTI
 ro.soc.model=SM8250
+ro.build.product=lmi
 
 # Subsystem Restart
 persist.vendor.ssr.restart_level=RELATED
