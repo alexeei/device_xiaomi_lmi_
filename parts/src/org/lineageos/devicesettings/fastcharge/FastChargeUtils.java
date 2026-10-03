@@ -31,7 +31,7 @@ public class FastChargeUtils {
     public static final String NORMAL_CHARGE_NODE = "/sys/class/qcom-battery/restrict_cur";
     public static final String USB_CHARGE_NODE = "/sys/kernel/fast_charge/force_fast_charge";
     public static final String THERMAL_BOOST_NODE = "/sys/class/qcom-battery/restrict_chg";
-    public static final String BYPASS_CHARGE_NODE = "";
+    public static final String BYPASS_CHARGE_NODE = "/sys/class/power_supply/battery/input_suspend";
     
     private static final String PREF_NORMAL_CHARGE = "fastcharge_normal";
     private static final String PREF_USB_CHARGE = "fastcharge_usb";

@@ -561,12 +561,11 @@ PRODUCT_BOOT_JARS += \
     xiaomi-telephony-stub
 
 # Thermal
-ifeq ($(TARGET_USE_QTI_THERMAL_SERVICE),true)
 PRODUCT_PACKAGES += \
-    android.hardware.thermal@2.0 \
-    android.hardware.thermal@2.0.vendor \
     android.hardware.thermal-service.qti
-endif
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/thermal_info_config.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config.json
+
 
 # Touchscreen
 PRODUCT_PACKAGES += \
