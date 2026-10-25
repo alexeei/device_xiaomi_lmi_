@@ -137,6 +137,9 @@ PRODUCT_COPY_FILES += \
 
 $(call soong_config_set_bool,android_hardware_audio,skip_speaker_layout_channel_mask_field,true)
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/keylayout/kona-mtp-snd-card_Button_Jack.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/kona-mtp-snd-card_Button_Jack.kl
+
 
 PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/bluetooth_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_audio_policy_configuration.xml \
@@ -196,8 +199,8 @@ PRODUCT_PACKAGES += \
 $(call soong_config_set,libcameraservice,ext_lib,libcameraservice_extension.lmi)
 
 # Camera Extensions permissions
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/permissions/camerax-vendor-extensions.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/camerax-vendor-extensions.xml
+#PRODUCT_COPY_FILES += \
+#    $(LOCAL_PATH)/configs/permissions/camerax-vendor-extensions.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/camerax-#vendor-extensions.xml
     
 # Charger
 PRODUCT_PACKAGES += \
@@ -352,7 +355,9 @@ SPAMMY_LOG_TAGS := \
 PRODUCT_PACKAGES += \
     libavservices_minijail \
     libavservices_minijail.vendor \
-    libavservices_minijail_vendor
+    libavservices_minijail_vendor \
+    media_codecs_kona.xml \
+    media_codecs_performance_kona.xml 
 
 # Media configs
 PRODUCT_COPY_FILES += \
@@ -408,7 +413,16 @@ PRODUCT_SOONG_NAMESPACES += \
     vendor/qcom/opensource/usb/etc
 
 # OMX
-TARGET_SUPPORTS_OMX_SERVICE := false
+PRODUCT_PACKAGES += \
+    libOmxAacEnc \
+    libOmxAmrEnc \
+    libOmxCore \
+    libOmxEvrcEnc \
+    libOmxG711Enc \
+    libOmxQcelp13Enc \
+    libOmxVdec \
+    libOmxVenc \
+    libstagefrighthw
 
 
 # Overlays
@@ -561,12 +575,11 @@ PRODUCT_BOOT_JARS += \
     xiaomi-telephony-stub
 
 # Thermal
-ifeq ($(TARGET_USE_QTI_THERMAL_SERVICE),true)
 PRODUCT_PACKAGES += \
-    android.hardware.thermal@2.0 \
-    android.hardware.thermal@2.0.vendor \
     android.hardware.thermal-service.qti
-endif
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/thermal_info_config.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config.json
+
 
 # Touchscreen
 PRODUCT_PACKAGES += \

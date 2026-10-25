@@ -12,17 +12,17 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/xiaomi/lmi/device.mk)
 
 # Inherit some common Ricedroid stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+$(call inherit-product, vendor/infinity/config/common_full_phone.mk)
 
 #BCR
-#$(call inherit-product, vendor/xiaomi/bcr/bcr.mk)
+$(call inherit-product, vendor/xiaomi/bcr/bcr.mk)
 
 TARGET_BUILD_APERTURE_CAMERA := false
 TARGET_BOOT_ANIMATION_RES := 1080
 TARGET_SUPPORTS_QUICK_TAP := true
 TARGET_OPTIMIZED_DEXOPT := true
 
-PRODUCT_NAME := lineage_lmi
+PRODUCT_NAME := infinity_lmi
 PRODUCT_DEVICE := lmi
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_BRAND := POCO

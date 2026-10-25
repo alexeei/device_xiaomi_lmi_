@@ -584,7 +584,7 @@
     {
       "PowerHint": "LAUNCH",
       "Node": "L3BigPlusClusterMinFreq",
-      "Duration": 1500,
+      "Duration": 500,
       "Value": "1382400000"
     },
     {

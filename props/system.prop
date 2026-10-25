@@ -1,3 +1,13 @@
+#Audio
+ro.config.system_vol_steps=20
+ro.config.media_vol_steps=20
+ro.config.alarm_vol_steps=20
+af.resampler.quality=7
+ro.audio.resampler.psd.stopband=132
+ro.audio.resampler.psd.halflength=960
+ro.audio.resampler.psd.cutoff_percent=98
+ro.audio.resampler.psd.tbwcheat=0
+
 # Camera
 ro.camerax.extensions.enabled=true
 
@@ -75,6 +85,7 @@ ro.vendor.qti.va_aosp.support=1
 # BT audio
 audio.offload.buffer.size.kb=256
 audio.offload.gapless.enabled=true
+
 
 #LMK
 ro.config.low_ram=false

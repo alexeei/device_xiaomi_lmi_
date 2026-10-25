@@ -122,8 +122,13 @@ vendor.audio.offload.buffer.size.kb=256
 vendor.audio.spkr_prot.tx.sampling_rate=48000
 vendor.audio_hal.period_multiplier=2
 
+vendor.audio.debug.level=0
+persist.vendor.verbose_logging_enabled=false
+
 # Audio hardware
 ro.hardware.audio.primary=lmi
+
+
 
 # Bluetooth
 bluetooth.device.class_of_device=90,2,12
@@ -248,11 +253,12 @@ debug.sdm.support_writeback=0
 vendor.display.enable_hdr10_gpu_target=1
 
 vendor.display.vds_allow_hwc=1
-debug.sf.enable_gl_backpressure=1
+#debug.sf.enable_gl_backpressure=1
 debug.hwui.skia_atrace_enabled=false
 
 
 #HWUI
+debug.sf.latch_unsignaled=1
 debug.hwui.use_hint_manager=true
 debug.hwui.renderer=skiagl
 ro.hwui.render_ahead=1
@@ -271,7 +277,7 @@ ro.hardware.keystore_desede=true
 # Media
 debug.stagefright.c2inputsurface=-1
 ro.odm.build.media_performance_class=30
-vendor.media.omx=0
+
 
 # Netflix
 ro.netflix.bsp_rev=Q8250-19134-1

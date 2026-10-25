@@ -89,6 +89,18 @@ case "$target" in
 	echo 0-1     > /dev/cpuset/restricted/cpus
 	echo 0-7     > /dev/cpuset/camera-daemon/cpus
 
+echo 500 > /sys/devices/system/cpu/cpu0/cpufreq/schedutil/up_rate_limit_us
+echo 20000 > /sys/devices/system/cpu/cpu0/cpufreq/schedutil/down_rate_limit_us
+echo 1000 > /sys/devices/system/cpu/cpu4/cpufreq/schedutil/up_rate_limit_us
+echo 10000 > /sys/devices/system/cpu/cpu4/cpufreq/schedutil/down_rate_limit_us
+echo 1000 > /sys/devices/system/cpu/cpu7/cpufreq/schedutil/up_rate_limit_us
+echo 10000 > /sys/devices/system/cpu/cpu7/cpufreq/schedutil/down_rate_limit_us
+
+write /proc/sys/vm/swappiness 100
+write /proc/sys/vm/vfs_cache_pressure 100
+write /proc/sys/vm/dirty_ratio 20
+write /proc/sys/vm/dirty_background_ratio 5
+
 	# Enable idle state listener
 	echo 1 > /sys/class/drm/card0/device/idle_encoder_mask
 	echo 100 > /sys/class/drm/card0/device/idle_timeout_ms

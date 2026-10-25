@@ -57,11 +57,6 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         <fqname>@1.2::INfc/default</fqname>
     </hal>
     <hal format="hidl">
-        <name>vendor.nxp.hardware.nfc</name>
-        <transport>hwbinder</transport>
-        <fqname>@2.0::INqNfc/default</fqname>
-    </hal>
-    <hal format="hidl">
         <name>android.hardware.secure_element</name>
         <transport>hwbinder</transport>
         <fqname>@1.2::ISecureElement/eSE1</fqname>
@@ -297,6 +292,12 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         <name>vendor.qti.hardware.soter</name>
         <transport>hwbinder</transport>
         <fqname>@1.0::ISoter/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.media.omx</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IOmx/default</fqname>
+        <fqname>@1.0::IOmxStore/default</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.qti.hardware.alarm</name>
