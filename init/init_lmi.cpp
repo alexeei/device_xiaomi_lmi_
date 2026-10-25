@@ -37,9 +37,12 @@ void load_dalvikvm_properties() {
     sysinfo(&sys);
     if(sys.totalram > 6144ull * 1024 * 1024) {
     // from - phone-xhdpi-8192-dalvik-heap.mk
-        property_override("dalvik.vm.heapstartsize", "24m");
-        property_override("dalvik.vm.heaptargetutilization", "0.46");
-        property_override("dalvik.vm.heapmaxfree", "48m");
+        property_override("dalvik.vm.heapstartsize", "16m");
+        property_override("dalvik.vm.heaptargetutilization", "0.5");
+        property_override("dalvik.vm.heapmaxfree", "64m");
+        property_override("dalvik.vm.heapgrowthlimit", "384m");
+        property_override("dalvik.vm.heapsize", "512m");
+        property_override("dalvik.vm.heapminfree", "8m");
     }
 }
 
