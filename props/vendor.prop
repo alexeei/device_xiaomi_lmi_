@@ -167,7 +167,7 @@ persist.camera.gyro.disable=0
 # Crypto
 ro.crypto.allow_encrypt_override=true
 ro.crypto.volume.filenames_mode=aes-256-cts
-ro.crypto.volume.metadata.method=dm-default-key 
+ro.crypto.volume.metadata.method=dm-default-key
 ro.crypto.volume.options=::v2
 
 # Display
@@ -176,17 +176,16 @@ ro.vendor.display.sensortype=2
 ro.vendor.display.paneltype=2
 ro.surface_flinger.supports_background_blur=1
 vendor.display.comp_mask=2
-vendor.display.disable_excl_rect=0
 vendor.display.disable_excl_rect_partial_fb=1
 vendor.display.disable_hw_recovery_dump=1
 vendor.display.disable_offline_rotator=1
+vendor.display.disable_inline_rotator=1
 vendor.display.disable_scaler=1
 vendor.display.enable_async_powermode=1
 vendor.display.enable_optimize_refresh=0
 vendor.display.enable_posted_start_dyn=1
 vendor.display.qdcm.disable_factory_mode=1
 vendor.display.qdcm.mode_combine=1
-vendor.display.use_layer_ext=1
 vendor.display.use_smooth_motion=1
 vendor.display.enable_camera_smooth=1
 vendor.display.enable_allow_idle_fallback=1
@@ -196,7 +195,7 @@ debug.sf.auto_latch_unsignaled=0
 
 ro.launcher.blur.appLaunch=0
 #increase ram consumption but improve smoothness
-debug.sf.disable_client_composition_cache=0
+debug.sf.disable_client_composition_cache=1
 
 #ro.config.avoid_gfx_accel=true
 
@@ -242,6 +241,8 @@ ro.vendor.display.touch.idle.enable?=true
 #ro.surface_flinger.set_touch_timer_ms?=500
 ro.surface_flinger.set_display_power_timer_ms?=500
 
+vendor.display.enable_null_display=0
+
 ro.surface_flinger.use_color_management=true
 ro.surface_flinger.wcg_composition_dataspace=143261696
 ro.surface_flinger.max_virtual_display_dimension=4096
@@ -252,18 +253,20 @@ debug.sdm.support_writeback=0
 
 vendor.display.enable_hdr10_gpu_target=1
 
-vendor.display.vds_allow_hwc=1
-#debug.sf.enable_gl_backpressure=1
+debug.sf.enable_gl_backpressure=1
 debug.hwui.skia_atrace_enabled=false
+vendor.display.disable_layer_extend=1
+vendor.display.disable_rotator_downscale=1
+vendor.display.disable_excl_rect=0
 
 
 #HWUI
-debug.sf.latch_unsignaled=1
+debug.sf.latch_unsignaled=0
 debug.hwui.use_hint_manager=true
-debug.hwui.renderer=skiagl
-ro.hwui.render_ahead=1
+debug.hwui.renderer=skiavk
+#ro.hwui.render_ahead=1
 #debug.hwui.target_cpu_time_percent=40
-debug.renderengine.backend=skiaglthreaded
+#debug.renderengine.backend=skiaglthreaded
 #renderthread.skia.reduceopstasksplitting=true
 #debug.hwui.render_thread_count=2
 
@@ -283,7 +286,6 @@ ro.odm.build.media_performance_class=30
 ro.netflix.bsp_rev=Q8250-19134-1
 
 # Netmgr
-persist.vendor.data.iwlan.enable=true
 persist.vendor.data.mode=concurrent
 ro.vendor.use_data_netmgrd=true
 
@@ -346,7 +348,6 @@ persist.vendor.ssr.restart_level=RELATED
 
 # USB
 ro.usb.uvc.disable_video_encode_flag=true
-ro.usb.uvc.enabled=true
 vendor.usb.diag.func.name=diag
 vendor.usb.dpl.inst.name=dpl
 vendor.usb.qdss.inst.name=qdss
@@ -367,6 +368,7 @@ ro.zram.periodic_wb_delay_hours=24
 
 
 # Vulkan
+ro.hwui.use_vulkan=true
 #debug.hwui.renderer=skiagl
 #debug.renderengine.backend=skiaglthreaded
 ro.hardware.vulkan=adreno

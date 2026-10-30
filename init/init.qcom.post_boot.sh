@@ -106,14 +106,14 @@ write /proc/sys/vm/dirty_background_ratio 5
 	echo 100 > /sys/class/drm/card0/device/idle_timeout_ms
 
 	# configure governor settings for silver cluster
-	echo "schedhorizon" > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
+	echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
 	echo 400000 > /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
 
 	# configure governor settings for gold cluster
-	echo "schedhorizon" > /sys/devices/system/cpu/cpufreq/policy4/scaling_governor
+	echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy4/scaling_governor
 
 	# configure governor settings for gold+ cluster
-	echo "schedhorizon" > /sys/devices/system/cpu/cpufreq/policy7/scaling_governor
+	echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy7/scaling_governor
 
 	# Enable bus-dcvs
 	for device in /sys/devices/platform/soc
