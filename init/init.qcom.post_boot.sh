@@ -90,11 +90,11 @@ case "$target" in
 	echo 0-7     > /dev/cpuset/camera-daemon/cpus
 
 echo 500 > /sys/devices/system/cpu/cpu0/cpufreq/schedutil/up_rate_limit_us
-echo 20000 > /sys/devices/system/cpu/cpu0/cpufreq/schedutil/down_rate_limit_us
+echo 2000 > /sys/devices/system/cpu/cpu0/cpufreq/schedutil/down_rate_limit_us
 echo 1000 > /sys/devices/system/cpu/cpu4/cpufreq/schedutil/up_rate_limit_us
-echo 10000 > /sys/devices/system/cpu/cpu4/cpufreq/schedutil/down_rate_limit_us
+echo 1000 > /sys/devices/system/cpu/cpu4/cpufreq/schedutil/down_rate_limit_us
 echo 1000 > /sys/devices/system/cpu/cpu7/cpufreq/schedutil/up_rate_limit_us
-echo 10000 > /sys/devices/system/cpu/cpu7/cpufreq/schedutil/down_rate_limit_us
+echo 1000 > /sys/devices/system/cpu/cpu7/cpufreq/schedutil/down_rate_limit_us
 
 write /proc/sys/vm/swappiness 100
 write /proc/sys/vm/vfs_cache_pressure 100
@@ -107,7 +107,7 @@ write /proc/sys/vm/dirty_background_ratio 5
 
 	# configure governor settings for silver cluster
 	echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
-	echo 400000 > /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
+	echo 300000 > /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
 
 	# configure governor settings for gold cluster
 	echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy4/scaling_governor
@@ -194,8 +194,6 @@ write /proc/sys/vm/dirty_background_ratio 5
 	done
 	# memlat specific settings are moved to seperate file under
 	# device/target specific folder
-	setprop vendor.dcvs.prop 0
-	setprop vendor.dcvs.prop 1
 	configure_memory_parameters
 	;;
 esac

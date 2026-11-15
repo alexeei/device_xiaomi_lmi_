@@ -62,6 +62,7 @@
         "1747201",
         "710400"
       ],
+      "DefaultIndex": 5,
       "ResetOnInit": true
     },
     {
@@ -94,6 +95,7 @@
         "960000",
         "844800"
       ],
+      "DefaultIndex": 5,
       "ResetOnInit": true
     },
     {
@@ -293,6 +295,7 @@
         "1382400000",
         "300000000"
       ],
+      "DefaultIndex": 1,
       "ResetOnInit": true
     },
     {
@@ -311,6 +314,7 @@
         "1382400000",
         "300000000"
       ],
+      "DefaultIndex": 1,
       "ResetOnInit": true
     },
     {
@@ -320,6 +324,7 @@
         "1382400000",
         "300000000"
       ],
+      "DefaultIndex": 1,
       "ResetOnInit": true
     },
     {

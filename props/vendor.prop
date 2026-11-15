@@ -159,6 +159,8 @@ ro.bluetooth.a2dp_offload.supported=true
 ro.vendor.bluetooth.wipower=false
 vendor.qcom.bluetooth.soc=hastings
 vendor.hw.fm.init=0
+persist.vendor.service.bdroid.snooze_delay=2000
+ro.vendor.bt.aging_mode=false
 
 # Camera
 camera.disable_zsl_mode=true
@@ -263,10 +265,10 @@ vendor.display.disable_excl_rect=0
 #HWUI
 debug.sf.latch_unsignaled=0
 debug.hwui.use_hint_manager=true
-debug.hwui.renderer=skiavk
-#ro.hwui.render_ahead=1
+debug.hwui.renderer=skiagl
+ro.hwui.render_ahead=1
 #debug.hwui.target_cpu_time_percent=40
-#debug.renderengine.backend=skiaglthreaded
+debug.renderengine.backend=skiaglthreaded
 #renderthread.skia.reduceopstasksplitting=true
 #debug.hwui.render_thread_count=2
 
@@ -368,9 +370,7 @@ ro.zram.periodic_wb_delay_hours=24
 
 
 # Vulkan
-ro.hwui.use_vulkan=true
-#debug.hwui.renderer=skiagl
-#debug.renderengine.backend=skiaglthreaded
+#ro.hwui.use_vulkan=true
 ro.hardware.vulkan=adreno
 ro.hardware.egl=adreno
 ro.opengles.version=196610

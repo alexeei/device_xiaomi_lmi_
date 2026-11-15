@@ -109,8 +109,7 @@ PRODUCT_PACKAGES += \
     android.hardware.audio@7.0-impl \
     android.hardware.audio.effect@7.0-impl \
     android.hardware.audio.service \
-    android.hardware.bluetooth.audio-impl \
-    android.hardware.soundtrigger@2.3-impl
+    android.hardware.bluetooth.audio-impl 
 
 PRODUCT_PACKAGES += \
     audio.bluetooth.default \
@@ -372,10 +371,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/media/media_codecs_performance_c2.xml:vendor/etc/media_codecs_performance_c2.xml
 endif
 
-# Mlipay
-PRODUCT_PACKAGES += \
-    vendor.xiaomi.hardware.mlipay@1.1.vendor \
-    vendor.xiaomi.hardware.mtdservice@1.0.vendor
 
 # NFC
 PRODUCT_PACKAGES += \
